@@ -1,0 +1,21 @@
+@import 'mixins';
+
+/* ----- PAGE WRAPPER ----- */
+
+.page-wrapper {
+  position: relative;
+  height: 100vh;
+  padding-top: 74px;
+  margin-left: 240px;
+  padding-bottom: 60px;
+  background: #f4f6f9;
+  
+  @media (max-width: 1169px) {
+    margin-left: 70px;
+  }
+
+}
+
+h2 {
+  color: black;
+}

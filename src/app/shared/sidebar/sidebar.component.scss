@@ -1,0 +1,27 @@
+@import 'mixins';
+
+/* ----- LEFT SIDEBAR ----- */
+
+.sidebar {
+  position: fixed;
+  top: 0px;
+  width: 240px;
+  height: 100%;
+  padding-top: 74px;
+  background-color: #242A33;
+  z-index: 9;
+
+  @media (max-width: 1169px) {
+    width: 70px;
+    min-width: 70px;
+  }
+
+  &__scroll {
+
+  }
+
+  &__nav {
+
+  }
+
+}
