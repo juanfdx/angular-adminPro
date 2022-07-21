@@ -5,16 +5,27 @@
 .sidebar {
   position: fixed;
   top: 0px;
-  width: 240px;
+  width: 0;
   height: 100%;
   padding-top: 74px;
   background-color: #242A33;
+  overflow: hidden;
   z-index: 9;
 
-  @media (max-width: 1169px) {
-    width: 70px;
-    min-width: 70px;
-  }
+
+  // @media (min-width: 768px) {
+  //   width: 70px;
+  //   min-width: 70px;
+  // }
+
+  // @media (min-width: 1170px) {
+  //   width: 240px;
+  // }
+
+  // &--active {
+  //   width: 240px;
+
+  // }
 
   &__scroll {
 

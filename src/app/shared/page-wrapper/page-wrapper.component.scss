@@ -6,12 +6,28 @@
   position: relative;
   height: 100vh;
   padding-top: 74px;
-  margin-left: 240px;
+  margin-left: 0;
   padding-bottom: 60px;
   background: #f4f6f9;
-  
-  @media (max-width: 1169px) {
+
+  @media (min-width: 768px) {
     margin-left: 70px;
+  }
+  
+  @media (min-width: 1170px) {
+    margin-left: 240px;
+  }
+
+  &--active {
+    @media (min-width: 1024px) {
+      margin-left: 240px;
+    }
+  }
+
+  &--inactive {
+    @media (min-width: 1024px) {
+      margin-left: 70px;
+    }
   }
 
 }
