@@ -1,27 +1,59 @@
-# AppMedicsHospitals
+## 🧾 Description
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+Small angular framework project for my portfolio. I have made an imitation of the [pccomponentes.com](https://www.pccomponentes.com/) website using frontend technologies. The idea is that the created page is as similar as possible to the original.
 
-## Development server
+## 🧐 Author 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Juan Fernandez Diaz
 
-## Code scaffolding
+- [Homepage](https://www.juan-fdez.com/home)
+- [LinkedIn](https://www.linkedin.com/in/juan-fdez-com/)
+- [Portfolio](https://www.juan-fdez.com/portfolio)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🚀 Demo
 
-## Build
+Try the web site:  [my-pccomponentes](https://my-pccomponentes.netlify.app/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🛠️ Installation Steps
 
-## Running unit tests
+1. Clone the repository
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+download zip from https://github.com/juanfdx/angular-pccomponentes-clone.git
+```
 
-## Running end-to-end tests
+2. Change the working directory
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+cd angular-pccomponentes-clone-main
+```
 
-## Further help
+3. Install dependencies
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+npm install
+```
+
+4. Run the app
+
+```bash
+ng serve -o
+```
+
+🌟 You are all set!
+
+## 💻 Built with
+
+<p>
+  <img src="https://img.icons8.com/color/48/000000/html-5--v1.png"/>
+  <img src="https://img.icons8.com/color/48/000000/css3.png"/>
+  <img src="https://img.icons8.com/color/48/000000/sass.png"/>
+  <img src="https://img.icons8.com/color/48/000000/javascript--v1.png"/>
+  <img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/44/000000/external-angular-a-typescript-based-open-source-web-application-framework-logo-color-tal-revivo.png"/>
+</p>
+
+## ☎ Get In Touch
+
+Contact me:  [juanfd@juan-fdez.com](https://www.juan-fdez.com/contact)
+&nbsp;<br />
+&nbsp;<br />

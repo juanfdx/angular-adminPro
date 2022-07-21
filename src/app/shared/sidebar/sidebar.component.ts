@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
-import { sidebarWidth } from 'src/app/helpers/sidebarWidth';
+import { sidebarWidth } from 'src/app/helpers/sidebarwidth';
 
 @Component({
   selector: 'app-sidebar',
