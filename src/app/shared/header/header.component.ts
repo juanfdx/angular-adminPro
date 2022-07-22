@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   public active      : boolean = false
   public dropProfile : boolean = false
   public dropLang    : boolean = false
+  public searchForm  : boolean = false
   public screenWidth : number = 0
 
   public listObservers$: Subscription[] = [];
@@ -56,6 +57,10 @@ export class HeaderComponent implements OnInit {
       this.dropProfile = false 
     }) 
     this.listObservers$.push(observer2$)
+  }
+
+  showSearchForm(): void {
+    this.searchForm = !this.searchForm
   }
 
   ngOnDestroy(): void {

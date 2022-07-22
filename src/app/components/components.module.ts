@@ -4,18 +4,21 @@ import { CommonModule } from '@angular/common';
 import { PanelButtonComponent } from './panel-button/panel-button.component';
 import { ProfileDropdownComponent } from './profile-dropdown/profile-dropdown.component';
 import { LangDropdownComponent } from './lang-dropdown/lang-dropdown.component';
+import { SearchFormComponent } from './search-form/search-form.component';
 
 
 @NgModule({
   declarations: [
     PanelButtonComponent,
     ProfileDropdownComponent,
-    LangDropdownComponent
+    LangDropdownComponent,
+    SearchFormComponent
   ],
   exports: [
     PanelButtonComponent,
     ProfileDropdownComponent,
-    LangDropdownComponent
+    LangDropdownComponent,
+    SearchFormComponent
   ],
   imports: [
     CommonModule
