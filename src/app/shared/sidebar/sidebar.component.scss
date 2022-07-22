@@ -10,22 +10,27 @@
   padding-top: 74px;
   background-color: #242A33;
   overflow: hidden;
-  z-index: 9;
+  z-index: 8;
 
 
-  // @media (min-width: 768px) {
-  //   width: 70px;
-  //   min-width: 70px;
-  // }
+  @media (min-width: 768px) {
+    width: 70px;
+    min-width: 70px;
+  }
 
-  // @media (min-width: 1170px) {
-  //   width: 240px;
-  // }
+  @media (min-width: 1170px) {
+    width: 240px;
+  }
 
-  // &--active {
-  //   width: 240px;
-
-  // }
+  &--active {
+    width: 240px;
+  }
+  
+  &--inactive {
+    @media (min-width: 768px) {
+      width: 70px;
+    }
+  }
 
   &__scroll {
 

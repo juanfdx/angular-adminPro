@@ -23,7 +23,7 @@
     width: 70px;
     height: 100%;
     min-width: 70px;
-    padding-left: 12px;
+    padding-left: 13px;
     background-color: #a6b7bf;
 
     @include flex(row, nowrap, flex-start, center);
@@ -94,9 +94,9 @@
     @include flex(row, nowrap, space-between, center);
   }
 
-  &__menu {
+  // &__menu {
 
-  }
+  // }
 
   &__menu-link {
     height: 74px;
@@ -148,15 +148,6 @@
 
   &__navbar-item {
     height: 74px;
-    padding: 10px 15px;
-    cursor: pointer;
-    
-    @include flex(row, nowrap, center, center);
-
-    @media (max-width: 767px) {
-      padding: 10px 11px;
-
-    }
 
     &:first-child {
       @media (max-width: 767px) {
@@ -166,7 +157,15 @@
   }
 
   &__navbar-link {
+    height: 100%;
+    padding: 10px 15px;
     cursor: pointer;
+
+    @include flex(row, nowrap, center, center);
+
+    @media (max-width: 767px) {
+      padding: 10px 11px;
+    }
   }
 
   &__navbar-svg {

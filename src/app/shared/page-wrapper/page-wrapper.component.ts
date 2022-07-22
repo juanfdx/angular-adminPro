@@ -9,7 +9,8 @@ import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
 })
 export class PageWrapperComponent implements OnInit {
 
-  public active : boolean = false
+  public active      : boolean = false
+  public screenWidth : number = 0
 
   private subscription$! : Subscription;
 
@@ -17,6 +18,8 @@ export class PageWrapperComponent implements OnInit {
 
   ngOnInit(): void {
     this.toggleMenu()
+    this.screenWidth = window.innerWidth
+    if (this.screenWidth >= 1170) { this.active = true }
   }
 
   toggleMenu(): void {

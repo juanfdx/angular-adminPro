@@ -1,6 +1,7 @@
 
-<header class="header">
+<header appClickInside class="header">
   <nav class="header__nav">
+
     <!-- logo -->
     <div class="header__logo" 
          [ngClass]="{'header__logo--active': active, 'header__logo--inactive': !active}">
@@ -56,23 +57,31 @@
         <!-- end email -->
         
         <!-- languages flag icon -->
-        <li class="header__navbar-item">
-          <a class="header__navbar-link">
-            <img class="header__navbar-img-flag" [src]="'/assets/images/flags/us.svg'" [alt]="'us flag'">
+        <li appStopPropagation class="header__navbar-item">
+          <a (click)="dropdownLang()" class="header__navbar-link">
+            <img class="header__navbar-img-flag" [src]="'/assets/images/flags/es.svg'" [alt]="'es flag'">
           </a>
+
+          <app-lang-dropdown [dropLang]="dropLang">
+          </app-lang-dropdown>
         </li>
         <!-- end languages flag icon -->
         <!-- profile -->
-        <li class="header__navbar-item">
-          <a class="header__navbar-link">
+        <li appStopPropagation class="header__navbar-item">
+          <a (click)="dropdownProfile()" class="header__navbar-link">
             <img class="header__navbar-img-profile" [src]="'/assets/images/users/user1.jpg'" [alt]="'User photo'">
           </a>
+
+          <app-profile-dropdown [dropProfile]="dropProfile"> 
+          </app-profile-dropdown>     
         </li>
         <!-- end profile -->
       </ul>
       <!-- end nav items -->
 
     </div>
+
+
 
   </nav>
 </header>

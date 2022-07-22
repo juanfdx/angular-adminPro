@@ -6,8 +6,13 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ToggleMenuService {
 
+  //menu
   public toggleMenuSource = new BehaviorSubject<boolean>(false)
   public toggleMenu$ = this.toggleMenuSource.asObservable()
+
+  //dropdowns
+  public closeDropdownSource = new BehaviorSubject<boolean>(false)
+  public closeDropdown$ = this.closeDropdownSource.asObservable()
 
   constructor() { }
 }

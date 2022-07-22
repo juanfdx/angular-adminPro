@@ -1,5 +1,6 @@
-<aside class="sidebar" 
-       [ngStyle]="{'width': sidebarWidth + 'px'}">
+<aside appClickInside 
+       class="sidebar" 
+       [ngClass]="{'sidebar--active': active, 'sidebar--inactive': !active}">
   
   <div class="sidebar__scroll">
     <nav class="sidebar__nav">

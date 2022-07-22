@@ -19,13 +19,13 @@ Try the web site:  [my-pccomponentes](https://my-pccomponentes.netlify.app/)
 1. Clone the repository
 
 ```bash
-download zip from https://github.com/juanfdx/angular-pccomponentes-clone.git
+download zip from https://github.com/juanfdx/angular-adminPro.git
 ```
 
 2. Change the working directory
 
 ```bash
-cd angular-pccomponentes-clone-main
+cd angular-adminPro-main
 ```
 
 3. Install dependencies
