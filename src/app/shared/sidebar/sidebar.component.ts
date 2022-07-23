@@ -11,6 +11,7 @@ export class SidebarComponent implements OnInit {
 
   public active      : boolean = false
   public position    : number = -1
+  public sideMenu    : number = -1
   public screenWidth : number = 0
 
   private subscription$! : Subscription;
@@ -40,6 +41,14 @@ export class SidebarComponent implements OnInit {
 
   setPosition(index: number): void {
     (this.position === index) ? this.position = -1 : this.position = index
+  }
+
+  showSideMenu(index: number): void {
+    if (!this.active) { this.sideMenu = index } 
+  }
+
+  hideSideMenu(): void {
+    if (!this.active) { this.sideMenu = -1 } 
   }
 
   ngOnDestroy(): void {
