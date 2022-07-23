@@ -30,8 +30,14 @@
     }
   }
 
+  &__container {
+    width: 100%;
+    padding: 25px;
+
+    @media (max-width: 767px) {
+      padding: 25px 15px;
+    }
+  }
+
 }
 
-h2 {
-  color: black;
-}

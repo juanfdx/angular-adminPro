@@ -7,7 +7,7 @@
   top: 0;
   width: 100%;
   height: 74px;
-  color: #67757c;
+  color: rgba(255, 255, 255, 0.8);
   background-color: #715EEA;
   box-shadow: 0 1px 5px rgb(0 0 0 / 5%);
   z-index: 10;
@@ -21,10 +21,10 @@
 
   &__logo {
     width: 70px;
-    height: 100%;
+    height: calc(100% - 4px);
     min-width: 70px;
     padding-left: 13px;
-    background-color: #a6b7bf;
+    background-color: #242A33;
 
     @include flex(row, nowrap, flex-start, center);
 
@@ -170,7 +170,6 @@
     min-width: 17px;
     height: 17px;
     margin-bottom: 2px;
-    color: #a6b7bf;
   }
 
   &__navbar-img-flag {

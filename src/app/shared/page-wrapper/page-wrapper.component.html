@@ -2,7 +2,11 @@
      class="page-wrapper" 
      [ngClass]="{'page-wrapper--active': active, 'page-wrapper--inactive': !active}">
 
-  <h2>page-wrapper works!</h2>
+     <div class="page-wrapper__container">
+
+       <app-breadcrumbs></app-breadcrumbs>
+       
+     </div>
 
   <app-footer></app-footer>
   

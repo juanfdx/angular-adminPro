@@ -4,7 +4,42 @@
   
   <div class="sidebar__scroll">
     <nav class="sidebar__nav">
-      sidebar
+      <ul class="sidebar__ul">
+        <li class="sidebar__li">
+          <a (click)="setPosition(0)" 
+             class="sidebar__link"
+             [ngClass]="{'sidebar__link--active': position === 0,
+                         'sidebar__link--show': active,
+                         'sidebar__link--hide': !active}">
+            <img class="sidebar__img" [src]="'/assets/images/users/user1.jpg'" [alt]="'User photo'">
+            <span class="sidebar__span" 
+                  [ngClass]="{'sidebar__span--show': active, 'sidebar__span--hide': !active}">
+              juan fernandez
+            </span>
+            <svg class="sidebar__svg" 
+                 [ngClass]="{'sidebar__svg--active': position === 0, 'sidebar__svg--show': active, 'sidebar__svg--hide': !active}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+          </a>
+          <ul class="sidebar__ul-profile" 
+              [ngClass]="{'sidebar__ul-profile--active': position === 0,
+                          'sidebar__ul-profile--show': active,
+                          'sidebar__ul-profile--hide': !active}">
+            <li class="sidebar__li-profile">
+              <a class="sidebar__profile-link">Mi Perfil</a>
+            </li>
+            <li class="sidebar__li-profile">
+              <a class="sidebar__profile-link">Configuración</a>
+            </li>
+            <li class="sidebar__li-profile">
+              <a class="sidebar__profile-link">Cerrar sesión</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="sidebar__nav-divider"></li>
+
+      </ul>
     </nav>
   </div>
 

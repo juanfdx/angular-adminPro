@@ -10,6 +10,7 @@ import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
 export class SidebarComponent implements OnInit {
 
   public active      : boolean = false
+  public position    : number = -1
   public screenWidth : number = 0
 
   private subscription$! : Subscription;
@@ -35,6 +36,10 @@ export class SidebarComponent implements OnInit {
     this.subscription$ = this.toggleMenuService.toggleMenu$.subscribe((res: boolean) => {
       this.active = res 
     })
+  }
+
+  setPosition(index: number): void {
+    (this.position === index) ? this.position = -1 : this.position = index
   }
 
   ngOnDestroy(): void {
