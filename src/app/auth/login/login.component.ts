@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  public active : boolean = false
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  setActive(): void {
+    this.active = !this.active
+  }
 }

@@ -45,3 +45,8 @@
     margin-right: 10px;
   }
 }
+
+// animted css
+.animate__animated.animate__fadeIn {
+  --animate-duration: .3s;
+}

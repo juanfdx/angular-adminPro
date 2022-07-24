@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  public active : boolean = false
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  setActive(): void {
+    this.active = !this.active
+  }
 }

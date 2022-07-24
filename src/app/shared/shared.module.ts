@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { AppRoutingModule } from '../app-routing.module';
 import { CommonModule } from '@angular/common';
 import { DirectivesModule } from '../directives/directives.module';
 //components
@@ -28,6 +29,7 @@ import { ComponentsModule } from '../components/components.module';
   ],
   imports: [
     CommonModule,
+    AppRoutingModule,
     ComponentsModule,
     DirectivesModule
   ]
