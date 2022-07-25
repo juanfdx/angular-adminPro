@@ -12,16 +12,16 @@ import { SearchFormComponent } from './search-form/search-form.component';
     PanelButtonComponent,
     ProfileDropdownComponent,
     LangDropdownComponent,
-    SearchFormComponent
+    SearchFormComponent,
   ],
   exports: [
     PanelButtonComponent,
     ProfileDropdownComponent,
     LangDropdownComponent,
-    SearchFormComponent
+    SearchFormComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class ComponentsModule { }
