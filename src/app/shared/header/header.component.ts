@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Theme } from 'src/app/interfaces/theme.interface';
+import { ThemesService } from 'src/app/services/themes.service';
 import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
 
 @Component({
@@ -14,13 +16,16 @@ export class HeaderComponent implements OnInit {
   public dropLang    : boolean = false
   public searchForm  : boolean = false
   public screenWidth : number = 0
+  public theme       : any
 
   public listObservers$: Subscription[] = [];
 
 
-  constructor(private toggleMenuService: ToggleMenuService) { }
+  constructor(private toggleMenuService: ToggleMenuService,
+              private themesService: ThemesService) { }
 
   ngOnInit(): void {
+    this.setTheme()
     this.toggleMenu()
     this.closeDropdowns()
     this.screenWidth = window.innerWidth
@@ -61,6 +66,13 @@ export class HeaderComponent implements OnInit {
 
   showSearchForm(): void {
     this.searchForm = !this.searchForm
+  }
+
+  setTheme(): void {
+    const observer3$ = this.themesService.theme$.subscribe((res: Theme) => {
+      this.theme = res
+    })
+    this.listObservers$.push(observer3$)
   }
 
   ngOnDestroy(): void {

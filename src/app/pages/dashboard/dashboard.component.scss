@@ -2,3 +2,13 @@
 
 /* ----- DASHBOARD ----- */
 
+.dashboard {
+  margin-bottom: 30px;
+  background-color: #fff;
+
+
+  &__card {
+    padding: 25px;
+    color: #000000;
+  }
+}

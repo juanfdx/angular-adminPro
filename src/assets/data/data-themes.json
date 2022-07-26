@@ -1,0 +1,74 @@
+[
+  {
+    "id"      : 1,
+    "color"   : "grey",
+    "header"  : "#98ABB4",
+    "sidebar" : "#FFFFFF"
+  },
+  {
+    "id"      : 2,
+    "color"   : "green",
+    "header"  : "#00D89F",
+    "sidebar" : "#FFFFFF"
+  },
+  {
+    "id"      : 3,
+    "color"   : "red",
+    "header"  : "#F25250",
+    "sidebar" : "#FFFFFF"
+  },
+  {
+    "id"      : 4,
+    "color"   : "blue",
+    "header"  : "#2B8AF4",
+    "sidebar" : "#FFFFFF"
+  },
+  {
+    "id"      : 5,
+    "color"   : "purple",
+    "header"  : "#715EEA",
+    "sidebar" : "#FFFFFF"
+  },
+  {
+    "id"      : 6,
+    "color"   : "megna",
+    "header"  : "#4EC0D7",
+    "sidebar" : "#FFFFFF"
+  },
+  {
+    "id"      : 7,
+    "color"   : "grey-dark",
+    "header"  : "#98ABB4",
+    "sidebar" : "#242A33"
+  },
+  {
+    "id"      : 8,
+    "color"   : "green-dark",
+    "header"  : "#00D89F",
+    "sidebar" : "#242A33"
+  },
+  {
+    "id"      : 9,
+    "color"   : "red-dark",
+    "header"  : "#F25250",
+    "sidebar" : "#242A33"
+  },
+  {
+    "id"      : 10,
+    "color"   : "blue-dark",
+    "header"  : "#2B8AF4",
+    "sidebar" : "#242A33"
+  },
+  {
+    "id"      : 11,
+    "color"   : "purple-dark",
+    "header"  : "#715EEA",
+    "sidebar" : "#242A33"
+  },
+  {
+    "id"      : 12,
+    "color"   : "megna-dark",
+    "header"  : "#4EC0D7",
+    "sidebar" : "#242A33"
+  }
+]
