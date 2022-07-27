@@ -9,7 +9,7 @@ import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None //sus estilos seran globales
 
 })
 export class SidebarComponent implements OnInit {

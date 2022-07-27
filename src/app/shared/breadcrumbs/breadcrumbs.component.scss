@@ -45,6 +45,10 @@
     @include flex(row, nowrap, center, center);
   }
 
+  &__span-2 {
+    text-transform: lowercase;
+  }
+
   &__svg {
     width: 13px;
     min-width: 13px;

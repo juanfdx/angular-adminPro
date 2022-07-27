@@ -20,20 +20,20 @@
 }
   
 /* Las adaptamos al modo oscuro */
-@media (prefers-color-scheme: dark) {
-  :root{
-    --color-primario   : #f0f0f0;
-    --color-secundario : #181818;
-    --color-sd-claro   : #FFFFFF;
-    --color-sd-oscuro  : #242A33;
-    --color-grey       : #98ABB4;
-    --color-green      : #00D89F;
-    --color-red        : #F25250;
-    --color-blue       : #2B8AF4;
-    --color-purple     : #715EEA;
-    --color-megna      : #4EC0D7;
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   :root{
+//     --color-primario   : #f0f0f0;
+//     --color-secundario : #181818;
+//     --color-sd-claro   : #FFFFFF;
+//     --color-sd-oscuro  : #242A33;
+//     --color-grey       : #98ABB4;
+//     --color-green      : #00D89F;
+//     --color-red        : #F25250;
+//     --color-blue       : #2B8AF4;
+//     --color-purple     : #715EEA;
+//     --color-megna      : #4EC0D7;
+//   }
+// }
 
 /* Opcional */
 /* Configuramos si un usuario ha activado el modo alto contraste. (WD) */

@@ -40,16 +40,18 @@
                   juan fernandez
                 </span>
                 <li class="sidebar__li-profile">
-                  <a class="sidebar__profile-link sidebar__profile-link--absoute">Mi Perfil</a>
+                  <a class="sidebar__profile-link">Mi Perfil</a>
                 </li>
-                <li class="sidebar__li-profile sidebar__li-profile--absolute">
-                  <a [routerLink]="['account-settings']" 
-                     class="sidebar__profile-link sidebar__profile-link--absoute">
+                <li class="sidebar__li-profile sidebar__li-profile">
+                  <a [routerLink]="['account-settings']"
+                     [routerLinkActive]="'sidebar__profile-link--active'" 
+                     [routerLinkActiveOptions]="{exact : true}" 
+                     class="sidebar__profile-link">
                     Configuración
                   </a>
                 </li>
-                <li class="sidebar__li-profile">
-                  <a [routerLink]="['/login']" class="sidebar__profile-link sidebar__profile-link--absoute">Cerrar sesión</a>
+                <li class="sidebar__li-profile sidebar__li-profile--logout">
+                  <a [routerLink]="['/login']" class="sidebar__profile-link">Cerrar sesión</a>
                 </li>
             </ul>
             <!-- end ul absolute -->
@@ -63,12 +65,14 @@
               <a class="sidebar__profile-link">Mi Perfil</a>
             </li>
             <li class="sidebar__li-profile">
-              <a [routerLink]="['account-settings']" 
+              <a [routerLink]="['account-settings']"
+                 [routerLinkActive]="'sidebar__profile-link--active'" 
+                 [routerLinkActiveOptions]="{exact : true}" 
                  class="sidebar__profile-link">
                 Configuración
               </a>
             </li>
-            <li class="sidebar__li-profile">
+            <li class="sidebar__li-profile sidebar__li-profile--logout">
               <a [routerLink]="['/login']" 
                  class="sidebar__profile-link">
                 Cerrar sesión
@@ -126,7 +130,10 @@
                 </span>
 
                 <li *ngFor="let item of item.submenu" class="sidebar__li-profile">
-                  <a [routerLink]="[item.url]" class="sidebar__profile-link sidebar__profile-link--absoute">
+                  <a class="sidebar__profile-link"
+                     [routerLink]="[item.url]" 
+                     [routerLinkActive]="'sidebar__profile-link--active'"
+                     [routerLinkActiveOptions]="{exact : true}">
                     {{ item.title }}
                   </a>
                 </li>
@@ -139,7 +146,10 @@
                           'sidebar__ul-profile--show': active,
                           'sidebar__ul-profile--hide': !active}">
             <li *ngFor="let item of item.submenu" class="sidebar__li-profile">
-              <a [routerLink]="[item.url]" class="sidebar__profile-link">
+              <a class="sidebar__profile-link"
+                 [routerLink]="[item.url]" 
+                 [routerLinkActive]="'sidebar__profile-link--active'"
+                 [routerLinkActiveOptions]="{exact : true}">
                 {{ item.title }}
               </a>
             </li>

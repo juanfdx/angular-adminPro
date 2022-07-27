@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { ActivationEnd, Router } from '@angular/router';
+import { filter, map, Observable, Subscription } from 'rxjs';
 import { Theme } from 'src/app/interfaces/theme.interface';
 import { ThemesService } from 'src/app/services/themes.service';
 
@@ -10,11 +11,22 @@ import { ThemesService } from 'src/app/services/themes.service';
 })
 export class BreadcrumbsComponent implements OnInit {
 
+  public title: string = '';
   public theme : any
+
   public listObservers$: Subscription[] = [];
 
 
-  constructor(private themesService: ThemesService) { }
+  constructor(private themesService: ThemesService,
+              private router: Router) { 
+
+    const observer2$ = this.getDataRoutes().subscribe( ({title}) => {
+      this.title = title   
+       //titulo de la pagina
+       document.title = `Medics & Hospitals - ${ title.toLowerCase() }`;
+    })
+    this.listObservers$.push(observer2$)
+  }
 
   ngOnInit(): void {
     this.setTheme()
@@ -25,6 +37,16 @@ export class BreadcrumbsComponent implements OnInit {
       this.theme = res
     })
     this.listObservers$.push(observer1$)
+  }
+
+  getDataRoutes(): Observable<any> {
+    //obtenemos la propiedad data de las rutas para los breadcrumbs
+    return this.router.events
+    .pipe(
+      filter( event => event instanceof ActivationEnd ),
+      filter( (event: any) => event.snapshot.firstChild === null ),
+      map((event: any) => event.snapshot.data )
+    );  
   }
 
   ngOnDestroy(): void {
