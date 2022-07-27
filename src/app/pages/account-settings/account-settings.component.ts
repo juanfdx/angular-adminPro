@@ -9,9 +9,8 @@ import { ThemesService } from 'src/app/services/themes.service';
 })
 export class AccountSettingsComponent implements OnInit {
 
-  public lightThemes : Theme[] = []
   public darkThemes  : Theme[] = []
-  public appTheme : string = 'grey'
+  public appTheme : string = 'purple-dark'
 
 
   constructor(private themesService: ThemesService) { }
@@ -22,8 +21,7 @@ export class AccountSettingsComponent implements OnInit {
 
   getThemes(): void {
     this.themesService.getThemes().subscribe((res: Theme[]) => {
-      this.lightThemes = res.filter((theme, i) => i < 6)
-      this.darkThemes = res.filter((theme, i) => i >= 6)
+      this.darkThemes = res
     })
   }
 

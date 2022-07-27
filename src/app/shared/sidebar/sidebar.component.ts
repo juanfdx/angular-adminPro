@@ -1,13 +1,16 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Theme } from 'src/app/interfaces/theme.interface';
+import { SidebarService } from 'src/app/services/sidebar.service';
 import { ThemesService } from 'src/app/services/themes.service';
 import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class SidebarComponent implements OnInit {
 
@@ -16,14 +19,17 @@ export class SidebarComponent implements OnInit {
   public sideMenu    : number = -1
   public screenWidth : number = 0
   public theme       : any
+  public sidebarMenu : any
 
 
   public listObservers$: Subscription[] = [];
 
   constructor(private toggleMenuService: ToggleMenuService,
-              private themesService: ThemesService) { }
+              private themesService: ThemesService,
+              private sidebarService: SidebarService) { }
 
   ngOnInit(): void {
+    this.getSidebarMenu()
     this.setTheme()
     this.toggleMenu()
     this.screenWidth = window.innerWidth
@@ -37,6 +43,12 @@ export class SidebarComponent implements OnInit {
     (this.screenWidth >= 1170) ? this.active = true : this.active = false
       
     this.toggleMenuService.toggleMenuSource.next(this.active) 
+  }
+
+  getSidebarMenu(): void {
+    this.sidebarService.getSidebarMenu().subscribe((res: any) => {
+      this.sidebarMenu = res
+    })
   }
 
   toggleMenu(): void {

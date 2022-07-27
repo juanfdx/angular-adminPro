@@ -4,7 +4,7 @@
   <div class="login__card">
     <div class="login__card-body">
 
-      <form class="login__login-form" autocomplete="off">
+      <form (submit)="login()" class="login__login-form" autocomplete="off">
 
         <a class="login__logo">
           <img class="login__logo-img" 
@@ -52,13 +52,13 @@
         </div>
 
         <div class="login__form-group login__form-group--submit">
-          <button type="button" class="login__submit-btn">LOGIN</button>
+          <button type="submit" class="login__submit-btn">LOGIN</button>
         </div>
 
         <div class="login__form-group">
           <div class="login__have-account">
             <span class="login__have-account-span">Don't have an account?</span>
-            <a class="login__link-signup">
+            <a [routerLink]="['/register']" class="login__link-signup">
               Sign Up
             </a>
           </div>

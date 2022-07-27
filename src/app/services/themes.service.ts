@@ -11,9 +11,9 @@ export class ThemesService {
   public themeSource = new BehaviorSubject<Theme>(
     {
       id      : 1,
-      color   : 'grey',
-      header  : '#98ABB4',
-      sidebar : '#FFFFFF'
+      color   : 'purple-dark',
+      header  : '#715EEA',
+      sidebar : '#242A33'
     }
   )
   public theme$ = this.themeSource.asObservable()
