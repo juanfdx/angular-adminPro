@@ -4,7 +4,10 @@
   <div class="login__card">
     <div class="login__card-body">
 
-      <form class="login__login-form" autocomplete="off">
+      <form class="login__login-form" 
+            autocomplete="off"
+            (ngSubmit)="createUser()"
+            [formGroup]="registerForm">
 
         <a class="login__logo">
           <img class="login__logo-img" 
@@ -20,31 +23,66 @@
 
         <div class="login__form-group">
           <div class="login__input-group">
-            <input class="login__input" type="text" placeholder="Name" autocomplete="off">
+            <input class="login__input" 
+                   type="text" 
+                   placeholder="Name"
+                   formControlName="name">
+
+            <p *ngIf="isRequired('name')" class="login__input-error">name required</p>
+            <p *ngIf="minLength('name')" class="login__input-error">name should be at last 3 letters</p>
+
           </div>
         </div>
 
         <div class="login__form-group">
           <div class="login__input-group">
-            <input class="login__input" type="text" placeholder="Last name" autocomplete="off">
+            <input class="login__input" 
+                   type="text" 
+                   placeholder="Last name" 
+                   formControlName="lastName">
+
+            <p *ngIf="isRequired('lastName')" class="login__input-error">lastName required</p>
+            <p *ngIf="minLength('lastName')" class="login__input-error">lastName should be at last 3 letters</p>
+          
           </div>
         </div>
 
         <div class="login__form-group">
           <div class="login__input-group">
-            <input class="login__input" type="text" placeholder="Email" autocomplete="off">
+            <input class="login__input" 
+                   type="email" 
+                   placeholder="Email" 
+                   formControlName="email">
+
+            <p *ngIf="isRequired('email')" class="login__input-error">email required</p>
+            <p *ngIf="isEmail()" class="login__input-error">valid email required</p>
+
           </div>
         </div>
 
         <div class="login__form-group">
           <div class="login__input-group">
-            <input class="login__input" type="password" placeholder="Password" autocomplete="off">
+            <input class="login__input" 
+                   type="password" 
+                   placeholder="Password" 
+                   formControlName="password">
+
+            <p *ngIf="isRequired('password')" class="login__input-error">password required</p>
+            <p *ngIf="minLength('password')" class="login__input-error">password must be at least 6 characters</p>
+
           </div>
         </div>
 
         <div class="login__form-group login__form-group--confirm">
           <div class="login__input-group">
-            <input class="login__input" type="password" placeholder="Confirm Password" autocomplete="off">
+            <input class="login__input" 
+                   type="password" 
+                   placeholder="Confirm Password" 
+                   formControlName="password2">
+
+            <p *ngIf="isRequired('password2')" class="login__input-error">confirm password required</p>
+            <p *ngIf="password2Match()" class="login__input-error">password missmatched</p>
+
           </div>
         </div>
 
@@ -55,22 +93,29 @@
               <input id="checkbox-signup" 
                      class="login__checkbox"
                      [ngClass]="{'login__checkbox--checked': active}"
-                     type="checkbox">
+                     type="checkbox"
+                     formControlName="terms">
                      
               <label (click)="setActive()" for="checkbox-signup" class="login__label-checkbox"> I agree to all </label>
 
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="login__check-svg" viewBox="0 0 16 16">
                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
               </svg>
+   
             </div>
-
+            
             <a class="login__terms-link">Terms</a>
+
+            <p *ngIf="isRequired('terms')" 
+               class="login__input-error login__input-error--checkbox">
+              you must accept the terms
+            </p>
 
           </div>
         </div>
 
         <div class="login__form-group login__form-group--submit">
-          <button type="button" class="login__submit-btn">SIGN UP</button>
+          <button [disabled]="registerForm.invalid" type="submit" class="login__submit-btn">SIGN UP</button>
         </div>
 
         <div class="login__form-group">

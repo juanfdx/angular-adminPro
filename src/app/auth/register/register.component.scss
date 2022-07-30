@@ -85,6 +85,20 @@
     }
   }
 
+  &__input-error {
+    position: absolute;
+    top: 34px;
+    left: 0;
+    color: tomato;
+    font-size: 14px;
+    font-style: italic;
+
+    &--checkbox {
+      top: 20px;
+    }
+
+  }
+
   &__input {
     width: 100%;
     min-height: 37px;
@@ -98,6 +112,7 @@
   }
 
   &__check-group {
+    position: relative;
     width: 100%;
     font-size: 20px;
     line-height: 22px;
@@ -190,4 +205,14 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active  {
     -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+/* ----- IF BUTTON DISABLED ----- */
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
 }
