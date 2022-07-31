@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RegisterForm } from 'src/app/interfaces/register-form.interface';
+import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-register',
@@ -13,7 +18,9 @@ export class RegisterComponent implements OnInit {
   public formSubmitted = false;
 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private userService: UserService,
+              private router: Router) {
 
     this.registerForm = this.fb.group({
       name:      ['', [ Validators.required, Validators.minLength(3) ]],
@@ -32,21 +39,25 @@ export class RegisterComponent implements OnInit {
 
   setActive(): void {
     this.active = !this.active
-    this.registerForm.get('terms')?.setValue(this.active)
+    this.registerForm.controls['terms'].setValue(this.active);
   }
 
   createUser(): void {
     this.formSubmitted = true;
-    console.log(this.registerForm.valid);
-
 
     if (this.registerForm.invalid) {
       return;  
-    } 
+    }
+
+    this.userService.createUser(this.registerForm.value)
+          .subscribe({
+            next: (res: any) => this.router.navigateByUrl('/'),
+            error: err => Swal.fire('Error', err.error.msg, 'error')
+          })
   }
 
 
-  //Errors methods:
+  //ERRORS METHODS:
   isRequired(field: string): boolean {
     if (this.registerForm.controls[field].getError('required') && this.formSubmitted) {
       return true
@@ -88,8 +99,8 @@ export class RegisterComponent implements OnInit {
         pass2Control?.setErrors({ mustMatch: true });
         
       } else {
+        /* si lo activo no muestra los errores en el campo password2 */
         // pass2Control?.setErrors(null);
-
       }
     }
   }

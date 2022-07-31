@@ -96,8 +96,8 @@
     &--checkbox {
       top: 20px;
     }
-
   }
+  
 
   &__input {
     width: 100%;
@@ -215,4 +215,19 @@ button[disabled]{
   background-color: #cccccc;
   color: #666666;
   cursor: not-allowed;
+}
+
+/* ----- PLACEHOLDER COLOR ----- */
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #babdbf;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #babdbf;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #babdbf;
 }

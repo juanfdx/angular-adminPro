@@ -4,7 +4,10 @@
   <div class="login__card">
     <div class="login__card-body">
 
-      <form (submit)="login()" class="login__login-form" autocomplete="off">
+      <form class="login__login-form" 
+            (submit)="login()" 
+            [formGroup]="loginForm" 
+            autocomplete="off">
 
         <a class="login__logo">
           <img class="login__logo-img" 
@@ -17,13 +20,27 @@
 
         <div class="login__form-group">
           <div class="login__input-group">
-            <input class="login__input" type="email" placeholder="Email" autocomplete="off">
+            <input class="login__input" 
+                   type="email" 
+                   placeholder="Email"
+                   formControlName="email">
+
+            <p *ngIf="isRequired('email')" class="login__input-error">email required</p>
+            <p *ngIf="isEmail()" class="login__input-error">valid email required</p>
+          
           </div>
         </div>
 
         <div class="login__form-group">
           <div class="login__input-group">
-            <input class="login__input" type="password" placeholder="Password" autocomplete="off">
+            <input class="login__input" 
+                   type="password" 
+                   placeholder="Password" 
+                   formControlName="password">
+
+            <p *ngIf="isRequired('password')" class="login__input-error">password required</p>
+            <p *ngIf="minLength('password')" class="login__input-error">password must be at least 6 characters</p>
+
           </div>
         </div>
 
@@ -34,9 +51,10 @@
               <input id="checkbox-signup" 
                      class="login__checkbox"
                      [ngClass]="{'login__checkbox--checked': active}"
-                     type="checkbox">
+                     type="checkbox"
+                     formControlName="remember">
                      
-              <label (click)="setActive()" for="checkbox-signup" class="login__label-checkbox">Remember me</label>
+              <label class="login__label-checkbox">Remember me</label>
 
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="login__check-svg" viewBox="0 0 16 16">
                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
@@ -52,7 +70,7 @@
         </div>
 
         <div class="login__form-group login__form-group--submit">
-          <button type="submit" class="login__submit-btn">LOGIN</button>
+          <button [disabled]="loginForm.invalid" type="submit" class="login__submit-btn">LOGIN</button>
         </div>
 
         <div class="login__form-group">
