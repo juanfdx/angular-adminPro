@@ -4,6 +4,7 @@ import { Theme } from 'src/app/interfaces/theme.interface';
 import { ThemesService } from 'src/app/services/themes.service';
 import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -24,6 +25,7 @@ export class HeaderComponent implements OnInit {
   constructor(private toggleMenuService: ToggleMenuService,
               private themesService: ThemesService) { }
 
+
   ngOnInit(): void {
     this.setTheme()
     this.toggleMenu()
@@ -31,6 +33,7 @@ export class HeaderComponent implements OnInit {
     this.screenWidth = window.innerWidth
     if (this.screenWidth >= 1170) { this.active = true }
   }
+
 
   toggleMenu(): void {
     const observer1$ = this.toggleMenuService.toggleMenu$.subscribe((res: boolean) => {

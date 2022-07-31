@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegisterForm } from 'src/app/interfaces/register-form.interface';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 

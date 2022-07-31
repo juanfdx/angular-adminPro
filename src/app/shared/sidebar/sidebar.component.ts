@@ -4,6 +4,7 @@ import { Theme } from 'src/app/interfaces/theme.interface';
 import { SidebarService } from 'src/app/services/sidebar.service';
 import { ThemesService } from 'src/app/services/themes.service';
 import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -26,7 +27,8 @@ export class SidebarComponent implements OnInit {
 
   constructor(private toggleMenuService: ToggleMenuService,
               private themesService: ThemesService,
-              private sidebarService: SidebarService) { }
+              private sidebarService: SidebarService,
+              private userService: UserService) { }
 
   ngOnInit(): void {
     this.getSidebarMenu()
@@ -43,6 +45,10 @@ export class SidebarComponent implements OnInit {
     (this.screenWidth >= 1170) ? this.active = true : this.active = false
       
     this.toggleMenuService.toggleMenuSource.next(this.active) 
+  }
+
+  logout(): void {
+    this.userService.logout()
   }
 
   getSidebarMenu(): void {

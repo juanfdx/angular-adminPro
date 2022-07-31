@@ -51,7 +51,7 @@
                   </a>
                 </li>
                 <li class="sidebar__li-profile sidebar__li-profile--logout">
-                  <a [routerLink]="['/login']" class="sidebar__profile-link">Cerrar sesión</a>
+                  <a (click)="logout()" class="sidebar__profile-link">Cerrar sesión</a>
                 </li>
             </ul>
             <!-- end ul absolute -->
@@ -73,7 +73,7 @@
               </a>
             </li>
             <li class="sidebar__li-profile sidebar__li-profile--logout">
-              <a [routerLink]="['/login']" 
+              <a (click)="logout()" 
                  class="sidebar__profile-link">
                 Cerrar sesión
               </a>

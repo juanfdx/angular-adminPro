@@ -45,11 +45,15 @@ export class UserService {
   RENEW TOKEN
 ============================================================*/
   validateToken(): Observable<boolean> {
-
+    //en this.headers mandamos el x-token
     return this.http.get(`${this.base_url}/login/renew`, this.headers)
                 .pipe(
+                  //de la res obtenemos el token renovado
                   tap( (res: any) => localStorage.setItem('token', res.token)),
-                  map( (res: any) => true ), //modifica la res a boolean
+                  //debemos devolver un true o false para el authGuard, con map, 
+                  //si hay respuesta, que sea true
+                  map( (res: any) => true ),
+                  //si hay error, con of, creamos un nuevo observable que manda un false
                   catchError( error => of(false))
                 )
   }
@@ -81,7 +85,7 @@ export class UserService {
   logout() {
 
     localStorage.removeItem('token');
-    localStorage.removeItem('menu');
+    // localStorage.removeItem('menu');
 
     this.router.navigateByUrl('/login');
   }

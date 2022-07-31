@@ -40,9 +40,7 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.formSubmitted = true;
 
-    if (this.loginForm.invalid) {
-      return;  
-    } 
+    if (this.loginForm.invalid) { return } 
 
     this.userService.login(this.loginForm.value).subscribe({
       next: (res: any) => {
@@ -58,8 +56,7 @@ export class LoginComponent implements OnInit {
 
       error: err => Swal.fire('Error', err.error.msg, 'error')
       
-    })
-    
+    })  
   }
 
   //ERRORS METHODS:
