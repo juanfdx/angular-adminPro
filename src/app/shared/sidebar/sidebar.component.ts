@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Theme } from 'src/app/interfaces/theme.interface';
+import { User } from 'src/app/interfaces/user.interface';
 import { SidebarService } from 'src/app/services/sidebar.service';
 import { ThemesService } from 'src/app/services/themes.service';
 import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
@@ -21,6 +22,7 @@ export class SidebarComponent implements OnInit {
   public screenWidth : number = 0
   public theme       : any
   public sidebarMenu : any
+  public user!       : User
 
 
   public listObservers$: Subscription[] = [];
@@ -36,6 +38,11 @@ export class SidebarComponent implements OnInit {
     this.toggleMenu()
     this.screenWidth = window.innerWidth
     if (this.screenWidth >= 1170) { this.active = true }
+
+    const observer3$ = this.userService.user$.subscribe( (res: User) => {
+      this.user = res   
+     })
+    this.listObservers$.push(observer3$) 
   }
 
   @HostListener('window:resize', ['$event'])

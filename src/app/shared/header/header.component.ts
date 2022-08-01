@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { Theme } from 'src/app/interfaces/theme.interface';
 import { ThemesService } from 'src/app/services/themes.service';
 import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
+import { UserService } from 'src/app/services/user.service';
+import { Subscription } from 'rxjs';
+//interfaces
+import { Theme } from 'src/app/interfaces/theme.interface';
+import { User } from 'src/app/interfaces/user.interface';
 
 
 @Component({
@@ -18,12 +21,14 @@ export class HeaderComponent implements OnInit {
   public searchForm  : boolean = false
   public screenWidth : number = 0
   public theme       : any
+  public user        : any
 
   public listObservers$: Subscription[] = [];
 
 
   constructor(private toggleMenuService: ToggleMenuService,
-              private themesService: ThemesService) { }
+              private themesService: ThemesService,
+              private userService: UserService) { }
 
 
   ngOnInit(): void {
@@ -32,6 +37,11 @@ export class HeaderComponent implements OnInit {
     this.closeDropdowns()
     this.screenWidth = window.innerWidth
     if (this.screenWidth >= 1170) { this.active = true }
+
+    const observer4$ = this.userService.user$.subscribe( (res: User) => {
+      this.user = res   
+     })
+    this.listObservers$.push(observer4$)  
   }
 
 

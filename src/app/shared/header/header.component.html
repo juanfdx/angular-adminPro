@@ -74,7 +74,7 @@
         <!-- profile -->
         <li appStopPropagation class="header__navbar-item">
           <a (click)="dropdownProfile()" class="header__navbar-link">
-            <img class="header__navbar-img-profile" [src]="'/assets/images/users/user1.jpg'" [alt]="'User photo'">
+            <img class="header__navbar-img-profile" [src]="user.image" [alt]="'User photo'">
           </a>
 
           <app-profile-dropdown [dropProfile]="dropProfile"> 
