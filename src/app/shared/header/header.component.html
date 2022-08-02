@@ -67,7 +67,8 @@
             <img class="header__navbar-img-flag" [src]="'/assets/images/flags/es.svg'" [alt]="'es flag'">
           </a>
 
-          <app-lang-dropdown [dropLang]="dropLang">
+          <app-lang-dropdown [dropLang]="dropLang"
+                             (close)="dropdownLang()">
           </app-lang-dropdown>
         </li>
         <!-- end languages flag icon -->
@@ -77,7 +78,8 @@
             <img class="header__navbar-img-profile" [src]="user.image" [alt]="'User photo'">
           </a>
 
-          <app-profile-dropdown [dropProfile]="dropProfile"> 
+          <app-profile-dropdown [dropProfile]="dropProfile"
+                                (close)="dropdownProfile()"> 
           </app-profile-dropdown>     
         </li>
         <!-- end profile -->

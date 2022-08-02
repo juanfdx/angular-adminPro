@@ -1,4 +1,7 @@
-<div *ngIf="dropProfile" class="profile animate__animated animate__fadeIn">
+<div *ngIf="dropProfile" 
+     class="profile animate__animated animate__fadeIn"
+     (click)="clickClose()">
+
   <ul class="profile__dropdown-user">
     <li>
       <div class="profile__user-box">
@@ -10,7 +13,10 @@
           <p class="profile__user-text-muted">
             {{user.email | slice:0:20}}{{(user.email.length > 20) ? '...' : ''}}
           </p>
-          <a class="profile__user-btn">Ver Perfil</a>
+          <a class="profile__user-btn" 
+             [routerLink]="['profile']">
+            Ver Perfil
+          </a>
         </div>
       </div>
     </li>

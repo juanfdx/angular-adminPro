@@ -24,6 +24,7 @@
   &__card-body {
     padding: 25px;
     background-color: #ffffff;
+    overflow: hidden;
   }
 
   &__h4 {
@@ -144,7 +145,7 @@
     min-width: 18px;
     height: 18px;
     color: #ffffff;
-    margin-right: 5px;
+    margin-right: 6px;
   }
 
   &__btn-cancel {
@@ -210,5 +211,11 @@ button[disabled]{
   background-color: #cccccc;
   color: #666666;
   cursor: not-allowed;
+}
+
+button:disabled:hover,
+button[disabled]:hover {
+  box-shadow: none;
+  border: 1px solid #999999;
 }
 

@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
 
 
 @Component({
@@ -9,6 +11,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LangDropdownComponent implements OnInit {
 
   @Input() dropLang : boolean = false
+  @Output() close = new EventEmitter<boolean>();
 
 
   constructor() { }
@@ -16,5 +19,9 @@ export class LangDropdownComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  clickClose(): void {
+    this.dropLang = false
+    this.close.emit(false)
+  }
 
 }

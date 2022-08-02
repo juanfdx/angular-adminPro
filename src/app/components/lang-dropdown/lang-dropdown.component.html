@@ -1,4 +1,7 @@
-<div *ngIf="dropLang" class="lang animate__animated animate__fadeIn">
+<div *ngIf="dropLang" 
+     class="lang animate__animated animate__fadeIn"
+     (click)="clickClose()">
+
   <a class="lang__link">
     <img class="lang__img" [src]="'/assets/images/flags/es.svg'" [alt]="'es flag'">
     <span>Español</span>
@@ -7,4 +10,5 @@
     <img class="lang__img" [src]="'/assets/images/flags/gb.svg'" [alt]="'gb flag'">
     <span>Inglés</span>
   </a>
+  
 </div>

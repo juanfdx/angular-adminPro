@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/interfaces/user.interface';
 import { UserService } from 'src/app/services/user.service';
@@ -12,6 +12,8 @@ import { UserService } from 'src/app/services/user.service';
 export class ProfileDropdownComponent implements OnInit {
 
   @Input() dropProfile : boolean = false
+  @Output() close = new EventEmitter<boolean>();
+
   public user : any
 
   public listObservers$: Subscription[] = [];
@@ -23,6 +25,11 @@ export class ProfileDropdownComponent implements OnInit {
       this.user = res   
      })
     this.listObservers$.push(observer1$)  
+  }
+
+  clickClose(): void {
+    this.dropProfile = false
+    this.close.emit(false)
   }
 
   
