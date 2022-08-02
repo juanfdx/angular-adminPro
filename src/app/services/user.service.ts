@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { imageUrl } from '../helpers/imageurl';
 //interfaces
 import { LoginForm } from '../interfaces/login-form.interface';
+import { ProfileForm } from '../interfaces/profile-form.interface';
 import { RegisterForm } from '../interfaces/register-form.interface';
 import { User } from '../interfaces/user.interface';
 
@@ -83,15 +84,39 @@ export class UserService {
                 )
   }
 
-
 /*===========================================================
   CREATE USER - user register
 ============================================================*/
   createUser(formData: RegisterForm): Observable<any> {
-    return this.http.post<RegisterForm>(`${this.base_url}/users`, formData)
+    return this.http.post(`${this.base_url}/users`, formData)
                 .pipe(
                   tap((res: any) => this.saveLocalStorage(res.token, res.menu)))
-  }             
+  }  
+
+/*===========================================================
+  UPDATE USER
+============================================================*/
+  updateUser(formData: ProfileForm, userId: string): Observable<any> {
+    //agregamos el role al formData
+    const data = {
+      ...formData,
+      role: this.user.role,
+    }
+
+    return this.http.put(`${this.base_url}/users/${userId}`, data, this.headers)
+                .pipe(
+                  map((res:any) => {
+                    this.user = res.user
+                    //si no tiene imagen asignamos una por defecto
+                    this.user.image = imageUrl(this.base_url, res.user.image)
+                    //mandamos el user como observable a toda la app
+                    this.userSource.next(this.user)
+                    
+                    return res
+                  })
+                )
+  }
+
 
 /*===========================================================
   LOGIN

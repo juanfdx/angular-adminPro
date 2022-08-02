@@ -6,7 +6,9 @@
       <h4 class="profile__h4">Perfil de Usuario</h4>
       <h6 class="profile__h6">Configuración</h6>
 
-      <form class="profile__form">
+      <form class="profile__form" 
+            [formGroup]="profileForm"
+            (ngSubmit)="updateProfile()">
 
         <div class="profile__form-group">
           <label class="profile__label" for="">Nombre</label>
@@ -18,7 +20,8 @@
             </div>
             <input class="profile__input" 
                    type="text" 
-                   placeholder="Juan">
+                   placeholder="Name"
+                   formControlName="name">
           </div>
         </div>
 
@@ -32,7 +35,8 @@
             </div>
             <input class="profile__input" 
                    type="text" 
-                   placeholder="Fernandez">
+                   placeholder="Last name"
+                   formControlName="lastName">
           </div>
         </div>
 
@@ -46,12 +50,13 @@
             </div>
             <input class="profile__input" 
                    type="email" 
-                   placeholder="juan@email.com">
+                   placeholder="Email"
+                   formControlName="email">
           </div>
         </div>
 
         <div class="profile__button-container">
-          <button type="button" class="profile__btn-save">
+          <button type="submit" class="profile__btn-save">
             <svg class="profile__save-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 3h2.996v5h-2.996v-5zm11 1v20h-24v-24h20l4 4zm-17 5h10v-7h-10v7zm15-4.171l-2.828-2.829h-.172v9h-14v-9h-3v20h20v-17.171z"/></svg>
             Guardar
           </button>
@@ -70,12 +75,21 @@
       <h6 class="profile__h6">Imagen de usuario</h6>
 
       <div class="profile__img-container">
-        <img class="profile__img" [src]="'/assets/images/users/juanfd.jpg'" alt="">
+        <img *ngIf="!imageTemp" class="profile__img" [src]="user.image" alt="">
+        <!-- si existe imageTemp solo se vera esa -->
+        <img *ngIf="imageTemp" class="profile__img" [src]="imageTemp" alt="">
+
       </div>
       
-      <input class="profile__input-file" type="file">
+      <input class="profile__input-file" 
+             type="file"
+             (change)="changeImage($event)">
 
-      <button type="button" class="profile__btn-save">
+      <button class="profile__btn-save" 
+              type="button"
+              [disabled]="!uploadImage"
+              (click)="updateImage()">
+
         <svg class="profile__save-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 3h2.996v5h-2.996v-5zm11 1v20h-24v-24h20l4 4zm-17 5h10v-7h-10v7zm15-4.171l-2.828-2.829h-.172v9h-14v-9h-3v20h20v-17.171z"/></svg>
         Actualizar
       </button>

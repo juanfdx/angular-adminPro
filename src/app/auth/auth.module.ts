@@ -3,11 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 //components
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
 
 
 @NgModule({
@@ -25,7 +23,6 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SweetAlert2Module
   ]
 })
 export class AuthModule { }

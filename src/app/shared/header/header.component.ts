@@ -39,11 +39,10 @@ export class HeaderComponent implements OnInit {
     if (this.screenWidth >= 1170) { this.active = true }
 
     const observer4$ = this.userService.user$.subscribe( (res: User) => {
-      this.user = res   
+      this.user = res    
      })
     this.listObservers$.push(observer4$)  
   }
-
 
   toggleMenu(): void {
     const observer1$ = this.toggleMenuService.toggleMenu$.subscribe((res: boolean) => {
