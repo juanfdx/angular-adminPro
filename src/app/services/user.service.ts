@@ -18,8 +18,8 @@ import { User } from '../interfaces/user.interface';
 })
 export class UserService {
 
-  private base_url  : string = environment.base_url
-  public user!      : User
+  private base_url : string = environment.base_url
+  public user!     : User
 
   public userSource = new BehaviorSubject<User>(
     {
@@ -53,22 +53,22 @@ export class UserService {
   }
 
 
-/*===========================================================
-  SAVE LOCALSTORAGE
-============================================================*/
+  /*===========================================================
+    SAVE LOCALSTORAGE
+  ============================================================*/
   saveLocalStorage( token: string, menu: any ) {
     localStorage.setItem('token', token);
     localStorage.setItem('menu', JSON.stringify(menu));
   }
 
-/*===========================================================
-  RENEW TOKEN
-============================================================*/
+  /*===========================================================
+    RENEW TOKEN
+  ============================================================*/
   validateToken(): Observable<boolean> {
     //en this.headers mandamos el x-token
     return this.http.get(`${this.base_url}/login/renew`, this.headers)
                 .pipe(
-                  map( (res:any) => {
+                  map((res:any) => {
 
                     this.user = res.user
                     //si no tiene imagen asignamos una por defecto
@@ -84,18 +84,18 @@ export class UserService {
                 )
   }
 
-/*===========================================================
-  CREATE USER - user register
-============================================================*/
+  /*===========================================================
+    CREATE USER - user register
+  ============================================================*/
   createUser(formData: RegisterForm): Observable<any> {
     return this.http.post(`${this.base_url}/users`, formData)
                 .pipe(
                   tap((res: any) => this.saveLocalStorage(res.token, res.menu)))
   }  
 
-/*===========================================================
-  UPDATE USER
-============================================================*/
+  /*===========================================================
+    UPDATE USER
+  ============================================================*/
   updateUser(formData: ProfileForm, userId: string): Observable<any> {
     //agregamos el role al formData
     const data = {
@@ -117,19 +117,35 @@ export class UserService {
                 )
   }
 
+  /*=====================================================================
+   GET ALL USERS 
+  =====================================================================*/
+  getAllUsers( from: number = 0): Observable<any> {
+    return this.http.get(`${this.base_url}/users/?from=${from}`, this.headers)
+            .pipe(
+              map((res: any) => {
+                //agregamos el path http://localhost:3000/api de la api a cada imagen
+                res.users.forEach((user: any) => {
+                  user.image =  imageUrl(this.base_url, user.image)     
+                })
+                return res
+              })
+            )
+  }
 
-/*===========================================================
-  LOGIN
-============================================================*/
+
+  /*===========================================================
+    LOGIN
+  ============================================================*/
   login(formData: LoginForm): Observable<any> {
     return this.http.post<LoginForm>(`${this.base_url}/login`, formData)
                 .pipe(
                   tap((res: any) => this.saveLocalStorage(res.token, res.menu)))
   }
 
-/*===========================================================
-  LOGOUT
-============================================================*/
+  /*===========================================================
+    LOGOUT
+  ============================================================*/
   logout() {
 
     localStorage.removeItem('token');

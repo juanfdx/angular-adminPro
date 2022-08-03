@@ -7,6 +7,9 @@ import { ProfileDropdownComponent } from './profile-dropdown/profile-dropdown.co
 import { LangDropdownComponent } from './lang-dropdown/lang-dropdown.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { SidebarIconComponent } from './sidebar-icon/sidebar-icon.component';
+import { SearchMaintComponent } from './search-maint/search-maint.component';
+import { LoadingMaintComponent } from './loading-maint/loading-maint.component';
+import { TableUsersComponent } from './table-users/table-users.component';
 
 
 @NgModule({
@@ -16,6 +19,9 @@ import { SidebarIconComponent } from './sidebar-icon/sidebar-icon.component';
     LangDropdownComponent,
     SearchFormComponent,
     SidebarIconComponent,
+    SearchMaintComponent,
+    LoadingMaintComponent,
+    TableUsersComponent,
   ],
   exports: [
     PanelButtonComponent,
@@ -23,6 +29,9 @@ import { SidebarIconComponent } from './sidebar-icon/sidebar-icon.component';
     LangDropdownComponent,
     SearchFormComponent,
     SidebarIconComponent,
+    SearchMaintComponent,
+    LoadingMaintComponent,
+    TableUsersComponent,
   ],
   imports: [
     CommonModule,

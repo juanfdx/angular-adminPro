@@ -159,6 +159,7 @@
               [ngClass]="{'sidebar__ul-profile--active': position === item.id,
                           'sidebar__ul-profile--show': active,
                           'sidebar__ul-profile--hide': !active}">
+
             <li *ngFor="let item of item.submenu" class="sidebar__li-profile">
               <a class="sidebar__profile-link"
                  [routerLink]="[item.url]" 
@@ -167,6 +168,7 @@
                 {{ item.title }}
               </a>
             </li>
+            
           </ul>
 
         </li>

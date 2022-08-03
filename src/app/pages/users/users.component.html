@@ -1,0 +1,8 @@
+
+<app-search-maint></app-search-maint>
+
+<app-loading-maint [loading]="loading"></app-loading-maint>
+
+<app-table-users [showTable]="loading" 
+                 (loading)="setLoading($event)">
+</app-table-users>

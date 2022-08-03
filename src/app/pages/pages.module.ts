@@ -8,6 +8,9 @@ import { ComponentsModule } from '../components/components.module';
 import { PagesComponent } from './pages.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './users/users.component';
+import { MedicsComponent } from './medics/medics.component';
+import { HospitalsComponent } from './hospitals/hospitals.component';
 
 
 @NgModule({
@@ -15,13 +18,19 @@ import { ProfileComponent } from './profile/profile.component';
     DashboardComponent,
     PagesComponent,
     AccountSettingsComponent,
-    ProfileComponent
+    ProfileComponent,
+    UsersComponent,
+    MedicsComponent,
+    HospitalsComponent
   ],
   exports : [
     DashboardComponent,
     PagesComponent,
     AccountSettingsComponent,
-    ProfileComponent
+    ProfileComponent,
+    UsersComponent,
+    MedicsComponent,
+    HospitalsComponent
   ],
   imports: [
     CommonModule,
