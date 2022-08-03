@@ -75,9 +75,9 @@
       <h6 class="profile__h6">Imagen de usuario</h6>
 
       <div class="profile__img-container">
-        <img *ngIf="!imageTemp" class="profile__img" [src]="user.image" alt="">
+        <img *ngIf="!imageTemp" class="profile__img" [src]="user.image" alt="User photo">
         <!-- si existe imageTemp solo se vera esa -->
-        <img *ngIf="imageTemp" class="profile__img" [src]="imageTemp" alt="">
+        <img *ngIf="imageTemp" class="profile__img" [src]="imageTemp" alt="User photo">
 
       </div>
       

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SearchsService } from 'src/app/services/searchs.service';
 
 @Component({
   selector: 'app-search-maint',
@@ -8,10 +9,21 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SearchMaintComponent implements OnInit {
 
   @Input() page : string = 'user'
+  @Output() term = new EventEmitter<string>()
 
-  constructor() { }
+
+  constructor(private searchService: SearchsService) { }
 
   ngOnInit(): void {
   }
 
+  search(term: string): void {
+    if (term.length === 0) {
+      this.searchService.searchSource.next(false)
+    
+    } else {
+      this.searchService.searchSource.next(true)
+    }
+    this.term.emit(term)
+  }
 }

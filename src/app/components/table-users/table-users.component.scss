@@ -51,7 +51,6 @@
   }
 
   &__td {
-    position: relative;
     border: 1px solid #e9ecef;
     padding: 6px 15px;
     font-weight: 300;
@@ -86,6 +85,10 @@
     margin-right: auto;
   }
 
+  &__select-wrapper {
+    position: relative;
+  }
+
   &__select {
     width: 110px;
     margin-left: auto;
@@ -95,6 +98,7 @@
     outline: none;
     border: 1px solid rgba(0,0,0,.15);
     border-radius: 5px;
+    background-color: transparent;
     transition: all .2s ease;
 
     &:focus {
@@ -104,11 +108,13 @@
 
   &__span {
     position: absolute;
-    top: 16px;
-    right: 25px;
+    top: 9px;
+    right: 9px;
+    width: fit-content;
     font-size: 25px;
     font-weight: 500;
     transform: rotate(270deg);
+    pointer-events: none;
   }
 
   &__status {

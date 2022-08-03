@@ -4,7 +4,11 @@
     <div class="search__card-body">
 
       <div class="search__input-wrapper">
-        <input class="search__input" type="text" [placeholder]="'Search ' + page + '...'">
+        <input class="search__input" 
+               type="text" 
+               [placeholder]="'Search ' + page + '...'"
+               (keyup)="search(txtTerm.value)"
+               #txtTerm>
       </div> 
       
     </div>

@@ -43,8 +43,8 @@ export class ProfileComponent implements OnInit {
 
   updateProfile(): void {
     this.userService.updateUser(this.profileForm.value, this.user._id).subscribe({
-      next: res => Swal.fire('Success!!!', res.msg, 'success'),
-      error: err => Swal.fire('Error!!!', err.error.msg, 'error')
+      next: res => Swal.fire('Success!!!', 'Usuario actualizado!', 'success'),
+      error: err => Swal.fire('Error!!!', 'No se pudo actualizar!', 'error')
     })
   }
 
@@ -76,12 +76,12 @@ export class ProfileComponent implements OnInit {
               Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: res.msg,
+                title: 'Imagen actualizada!',
                 showConfirmButton: false,
                 timer: 2000
               })        
             },
-            error: err => Swal.fire('Error!!!', err.error.msg, 'error') 
+            error: err => Swal.fire('Error!!!', 'No se pudo subir la imagen!', 'error') 
           })
   }
 

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 //components
 import { PanelButtonComponent } from './panel-button/panel-button.component';
 import { ProfileDropdownComponent } from './profile-dropdown/profile-dropdown.component';
@@ -35,7 +36,8 @@ import { TableUsersComponent } from './table-users/table-users.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ]
 })
 export class ComponentsModule { }

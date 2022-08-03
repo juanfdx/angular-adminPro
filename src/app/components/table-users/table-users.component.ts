@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { User } from 'src/app/interfaces/user.interface';
+import { SearchsService } from 'src/app/services/searchs.service';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 
@@ -10,39 +12,73 @@ import Swal from 'sweetalert2';
 })
 export class TableUsersComponent implements OnInit {
 
-  public users : User[] = []
-  public total : number = 0
-  public from  : number = 0
+  @Input() users   : User[] = []
+  @Input() total   : number = 0
+  @Input() loading : boolean = false
+  @Output() updatePagination = new EventEmitter<number>()
+  @Output() updateDelete     = new EventEmitter<boolean>()
 
-  @Input() showTable : boolean = false
-  @Output() loading = new EventEmitter<boolean>(false)
+  public from   : number = 0
 
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+              private searchService: SearchsService) { }
 
   ngOnInit(): void {
-    this.getUsers()
   }
 
-  getUsers(): void {
-    this.userService.getAllUsers(this.from).subscribe({
-      next: res => {
-        this.users = res.users
-        this.total = res.total
-        this.loading.next(false)
-      },
-      error: err => Swal.fire('Error!!!', 'Unexpected error!', 'error')   
-    })
+  //CHANGE USER ROLE
+  changeUserRole(user: User): void {
+    this.userService.changeRoleOrStatus(user).subscribe(res => res)
   }
 
+  //CHANGE USER STATUS
+  changeUserStatus(user: User): void {
+    (user.status === 'active') ? user.status = 'inactive' : user.status = 'active';   
+    this.userService.changeRoleOrStatus(user).subscribe( res => res)
+  }
+
+  //DELETE USER
+  deleteUser(user: User): void {
+    
+    if (user._id === this.userService.userId) {
+      Swal.fire('Error!!!', 'No puede borrarse a si mismo.', 'error');
+    
+    } else {
+      Swal.fire({
+        title: 'Borrar',
+        text: `Deseas borrar a ${ user.name } ${ user.lastName }?`,
+        showCancelButton: true,
+        confirmButtonText: 'Si',
+        
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+
+          this.userService.deleteUser(user._id).subscribe({
+            next: res => {
+              Swal.fire('Usuario borrado', `${ user.name } ${ user.lastName }`, 'success');
+              this.updateDelete.emit(true)
+            },
+            error: err => Swal.fire('Error!!!', 'No se pudo borrar ese usuario.', 'error'),
+
+          })
+        }
+      })
+    }
+  }
+
+
+
+  //PAGINATION
   pagination( value: number): void {
     this.from += value;
-
     if (this.from <  0) { this.from = 0 } 
-
     if (this.from >= this.total) { this.from -= value }
 
-    this.getUsers();
+    this.updatePagination.emit(this.from)
   }
+
+
 
 }

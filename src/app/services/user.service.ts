@@ -23,7 +23,7 @@ export class UserService {
 
   public userSource = new BehaviorSubject<User>(
     {
-      id       : '',
+      _id      : '',
       name     : '',
       lastName : '',
       email    : '',
@@ -40,6 +40,11 @@ export class UserService {
 
 
   //GETTERS:
+  //usuario que esta logueado
+  public get userId() : string {
+    return this.user._id || '';
+  }
+
   public get token(): string {
     return localStorage.getItem('token') || '';
   }
@@ -107,7 +112,7 @@ export class UserService {
                 .pipe(
                   map((res:any) => {
                     this.user = res.user
-                    //si no tiene imagen asignamos una por defecto
+                    //si no tiene imagen asignamos una por defecto e incluimos el path
                     this.user.image = imageUrl(this.base_url, res.user.image)
                     //mandamos el user como observable a toda la app
                     this.userSource.next(this.user)
@@ -115,6 +120,16 @@ export class UserService {
                     return res
                   })
                 )
+  }
+
+  /*===========================================================
+    CHANGE USER_ROLE OR STATUS
+  ============================================================*/
+  changeRoleOrStatus(user: any): Observable<any> {
+    //quitamos la imagen del user, pq viene con un path incluido
+    const {image, ...data} = user
+    
+    return this.http.put(`${this.base_url}/users/${user._id}`, data, this.headers)
   }
 
   /*=====================================================================
@@ -133,6 +148,12 @@ export class UserService {
             )
   }
 
+  /*===========================================================
+    DELETE USER
+  ============================================================*/
+  deleteUser(id: string): Observable<any> {
+    return this.http.delete(`${this.base_url}/users/${id}`, this.headers)
+  }
 
   /*===========================================================
     LOGIN
