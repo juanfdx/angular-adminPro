@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/interfaces/user.interface';
+import { ModalImageService } from 'src/app/services/modal-image.service';
 import { SearchsService } from 'src/app/services/searchs.service';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
@@ -23,7 +24,8 @@ export class TableUsersComponent implements OnInit {
   private subscription$!: Subscription;
 
   constructor(private userService: UserService,
-              private searchService: SearchsService) { }
+              private searchService: SearchsService,
+              private modalImageService: ModalImageService) { }
 
   ngOnInit(): void {
     this.getUsers()
@@ -100,6 +102,11 @@ export class TableUsersComponent implements OnInit {
     }
   }
 
+  //OPEN MODAL
+  openModal(user: User): void {
+    this.modalImageService.modalSource.next(user)
+  }
+  
   //PAGINATION
   pagination( value: number): void {
     this.from += value;
@@ -107,7 +114,6 @@ export class TableUsersComponent implements OnInit {
     if (this.from >= this.total) { this.from -= value }
     this.getUsers()
   }
-
 
   ngOnDestroy(): void {
     this.subscription$.unsubscribe();
