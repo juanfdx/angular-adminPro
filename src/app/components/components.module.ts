@@ -11,6 +11,7 @@ import { SidebarIconComponent } from './sidebar-icon/sidebar-icon.component';
 import { SearchMaintComponent } from './search-maint/search-maint.component';
 import { LoadingMaintComponent } from './loading-maint/loading-maint.component';
 import { TableUsersComponent } from './table-users/table-users.component';
+import { ModalImageComponent } from './modal-image/modal-image.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { TableUsersComponent } from './table-users/table-users.component';
     SearchMaintComponent,
     LoadingMaintComponent,
     TableUsersComponent,
+    ModalImageComponent,
   ],
   exports: [
     PanelButtonComponent,
@@ -33,6 +35,7 @@ import { TableUsersComponent } from './table-users/table-users.component';
     SearchMaintComponent,
     LoadingMaintComponent,
     TableUsersComponent,
+    ModalImageComponent,
   ],
   imports: [
     CommonModule,

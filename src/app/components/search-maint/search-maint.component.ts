@@ -18,12 +18,6 @@ export class SearchMaintComponent implements OnInit {
   }
 
   search(term: string): void {
-    if (term.length === 0) {
-      this.searchService.searchSource.next(false)
-    
-    } else {
-      this.searchService.searchSource.next(true)
-    }
-    this.term.emit(term)
+    this.searchService.searchSource.next(term)
   }
 }

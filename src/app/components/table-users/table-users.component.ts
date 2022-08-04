@@ -12,19 +12,51 @@ import Swal from 'sweetalert2';
 })
 export class TableUsersComponent implements OnInit {
 
-  @Input() users   : User[] = []
-  @Input() total   : number = 0
   @Input() loading : boolean = false
-  @Output() updatePagination = new EventEmitter<number>()
-  @Output() updateDelete     = new EventEmitter<boolean>()
+  @Output() loaded = new EventEmitter<boolean>()
+  
+  public users : User[] = []
+  public total : number = 0
+  public from  : number = 0
+  public term  : string = ''
 
-  public from   : number = 0
-
+  private subscription$!: Subscription;
 
   constructor(private userService: UserService,
               private searchService: SearchsService) { }
 
   ngOnInit(): void {
+    this.getUsers()
+
+    this.subscription$ = this.searchService.search$.subscribe( res => {
+      this.term = res
+      this.search(this.term) 
+    })
+  }
+
+  //GET USERS
+  getUsers(): void {
+    this.loaded.emit(true) 
+    this.userService.getAllUsers(this.from).subscribe({
+      next: res => {
+        this.users = res.users
+        this.total = res.total
+        this.loaded.emit(false)     
+      },
+      error: err => Swal.fire('Error!!!', 'Error inesperado!', 'error')   
+    })
+  }
+
+  //SEARCH
+  search(term: string): void {
+    if (term.length === 0) {
+      this.getUsers();
+      return;
+    }
+    this.searchService.search('users', term).subscribe( res => {
+      this.users = res.data
+      this.total = res.total   
+    })
   }
 
   //CHANGE USER ROLE
@@ -58,7 +90,7 @@ export class TableUsersComponent implements OnInit {
           this.userService.deleteUser(user._id).subscribe({
             next: res => {
               Swal.fire('Usuario borrado', `${ user.name } ${ user.lastName }`, 'success');
-              this.updateDelete.emit(true)
+              this.getUsers()
             },
             error: err => Swal.fire('Error!!!', 'No se pudo borrar ese usuario.', 'error'),
 
@@ -68,17 +100,17 @@ export class TableUsersComponent implements OnInit {
     }
   }
 
-
-
   //PAGINATION
   pagination( value: number): void {
     this.from += value;
     if (this.from <  0) { this.from = 0 } 
     if (this.from >= this.total) { this.from -= value }
-
-    this.updatePagination.emit(this.from)
+    this.getUsers()
   }
 
 
+  ngOnDestroy(): void {
+    this.subscription$.unsubscribe();
+  }
 
 }

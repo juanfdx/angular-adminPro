@@ -64,7 +64,7 @@
         </tbody>
       </table>
 
-      <div class="table__buttons-container">
+      <div *ngIf="term.length === 0 " class="table__buttons-container">
         <button class="table__page-btn"
                 (click)="pagination(-5)">
           Ant.

@@ -1,5 +1,5 @@
 
-<app-search-maint (term)="search($event)"></app-search-maint>
+<app-search-maint ></app-search-maint>
 
 
 <app-loading-maint [loading]="loading">
@@ -7,8 +7,5 @@
 
 
 <app-table-users [loading]="loading" 
-                 [users]="users" 
-                 [total]="total"
-                 (updatePagination)="tableUpdatePagination($event)"
-                 (updateDelete)="tableUpdateDelete()">
+                 (loaded)="loaded($event)">
 </app-table-users>

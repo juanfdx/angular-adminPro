@@ -13,7 +13,7 @@ export class SearchsService {
 
   public base_url: string = environment.base_url;
 
-  public searchSource = new BehaviorSubject<boolean>(false)
+  public searchSource = new BehaviorSubject<string>('')
   public search$ = this.searchSource.asObservable()  
 
   constructor(private http: HttpClient) { }
