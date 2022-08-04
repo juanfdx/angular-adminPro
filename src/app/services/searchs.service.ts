@@ -48,7 +48,7 @@ export class SearchsService {
                   map((res: any) => {
                     //agregamos el path http://localhost:3000/api de la api a cada imagen
                     res.data.forEach((user: any) => {
-                      user.image =  imageUrl(this.base_url, user.image)     
+                      user.image =  imageUrl(this.base_url, user.image, type)     
                     })
                     return res
                   })

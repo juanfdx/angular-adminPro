@@ -77,7 +77,7 @@ export class UserService {
 
                     this.user = res.user
                     //si no tiene imagen asignamos una por defecto
-                    this.user.image = imageUrl(this.base_url, res.user.image)
+                    this.user.image = imageUrl(this.base_url, res.user.image, 'users')
                     //mandamos el user como observable a toda la app
                     this.userSource.next(this.user)
 
@@ -113,7 +113,7 @@ export class UserService {
                   map((res:any) => {
                     this.user = res.user
                     //si no tiene imagen asignamos una por defecto e incluimos el path
-                    this.user.image = imageUrl(this.base_url, res.user.image)
+                    this.user.image = imageUrl(this.base_url, res.user.image, 'users')
                     //mandamos el user como observable a toda la app
                     this.userSource.next(this.user)
                     
@@ -141,7 +141,7 @@ export class UserService {
               map((res: any) => {
                 //agregamos el path http://localhost:3000/api de la api a cada imagen
                 res.users.forEach((user: any) => {
-                  user.image =  imageUrl(this.base_url, user.image)     
+                  user.image =  imageUrl(this.base_url, user.image, 'users')     
                 })
                 return res
               })

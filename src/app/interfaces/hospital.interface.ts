@@ -1,8 +1,8 @@
 
 export interface Hospital {
   
+  _id    : string;
   name   : string;
-  id?    : string;
   image? : string;
 
 }

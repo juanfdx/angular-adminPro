@@ -1,9 +1,9 @@
 
 export interface Medic {
 
+  _id      : string;
   name     : string;
   lastName : string;
-  id?      : string;
   image?   : string;
 
 }

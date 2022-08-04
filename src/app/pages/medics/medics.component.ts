@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicsComponent implements OnInit {
 
+  public page    : string = 'medic'
+  public loading : boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  loaded(event: boolean): void {
+    this.loading = event
+  }
 }

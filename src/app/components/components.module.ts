@@ -11,6 +11,8 @@ import { SidebarIconComponent } from './sidebar-icon/sidebar-icon.component';
 import { SearchMaintComponent } from './search-maint/search-maint.component';
 import { LoadingMaintComponent } from './loading-maint/loading-maint.component';
 import { TableUsersComponent } from './table-users/table-users.component';
+import { TableHospitalsComponent } from './table-hospitals/table-hospitals.component';
+import { TableMedicsComponent } from './table-medics/table-medics.component';
 import { ModalImageComponent } from './modal-image/modal-image.component';
 
 
@@ -24,6 +26,8 @@ import { ModalImageComponent } from './modal-image/modal-image.component';
     SearchMaintComponent,
     LoadingMaintComponent,
     TableUsersComponent,
+    TableHospitalsComponent,
+    TableMedicsComponent,
     ModalImageComponent,
   ],
   exports: [
@@ -35,6 +39,8 @@ import { ModalImageComponent } from './modal-image/modal-image.component';
     SearchMaintComponent,
     LoadingMaintComponent,
     TableUsersComponent,
+    TableHospitalsComponent,
+    TableMedicsComponent,
     ModalImageComponent,
   ],
   imports: [

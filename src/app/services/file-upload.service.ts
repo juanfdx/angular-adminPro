@@ -44,7 +44,7 @@ export class FileUploadService {
                     map( (res: any) => {
                       let { fileName } = res
                       //agregamos la ruta completa a la imagen
-                      res.fileName = imageUrl(this.base_url, fileName)
+                      res.fileName = imageUrl(this.base_url, fileName, type)
                       return res
                     })
                     

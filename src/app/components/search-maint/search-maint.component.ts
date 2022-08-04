@@ -9,7 +9,6 @@ import { SearchsService } from 'src/app/services/searchs.service';
 export class SearchMaintComponent implements OnInit {
 
   @Input() page : string = 'user'
-  @Output() term = new EventEmitter<string>()
 
 
   constructor(private searchService: SearchsService) { }
