@@ -64,10 +64,8 @@ export class TableMedicsComponent implements OnInit {
     })
   }
 
-  updateMedic(medic: any): void {
 
-  }
-
+  //DELETE MEDIC
   deleteMedic( medic: any ): void {
 
     Swal.fire({
@@ -114,5 +112,4 @@ export class TableMedicsComponent implements OnInit {
   ngOnDestroy(): void {
     this.subscription$.unsubscribe();
   }
-
 }

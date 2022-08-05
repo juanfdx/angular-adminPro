@@ -85,8 +85,11 @@ export class ModalImageComponent implements OnInit {
 
   closeModal(): void {
     this.imageTemp = null;
-    this.myFileInput.nativeElement.value = '' //vaciamos el input file
+    //vaciamos el input file, pq sino se quedaria la imagen en el input
+    //y al abrir el modal en otro sitio apareceria esa la imagen
+    this.myFileInput.nativeElement.value = ''
     this.disabled = this.myFileInput.nativeElement.value.length
+    
     this.active = false
   }
 

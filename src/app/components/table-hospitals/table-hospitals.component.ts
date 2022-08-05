@@ -41,7 +41,7 @@ export class TableHospitalsComponent implements OnInit {
     })
   }
 
-
+  //GET HOSPITALS
   getHospitals(): void {
     this.loaded.emit(true) 
     this.hospitalService.getAllHospitals(this.from).subscribe({
@@ -66,7 +66,7 @@ export class TableHospitalsComponent implements OnInit {
     })
   }
 
-  //usamos un sweetalert para crear un hospital
+  //CREATE HOSPITAL - usamos un sweetalert para crear un hospital
   async createHospital() {
     
     const { value } = await Swal.fire<string>({
@@ -102,6 +102,7 @@ export class TableHospitalsComponent implements OnInit {
     }
   }
 
+  //UPDATE HOSPITAL
   updateHospital(hospital : any): void {
 
     this.hospitalService.updateHospital(hospital._id, hospital.name).subscribe({
@@ -121,6 +122,7 @@ export class TableHospitalsComponent implements OnInit {
     }) 
   }
 
+  //DELETE HOSPITAL
   deleteHospital(hospital : any): void {
 
     Swal.fire({

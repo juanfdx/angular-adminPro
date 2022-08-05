@@ -8,7 +8,10 @@
           <h4 class="table__h4">Médicos ({{total}})</h4>
           <h6 class="table__h6">Médicos registrados</h6>
         </div>
-        <button class="table__header-btn">Crear médico</button>
+        <a class="table__header-btn"
+                routerLink="/dashboard/medic/new">
+          Crear médico
+        </a>
       </div>
 
       <table class="table__table-medics">
@@ -36,7 +39,7 @@
 
               <div class="table__actions-wrapper">
                 <a class="table__btn-delete"
-                    (click)="updateMedic(medic)">
+                    [routerLink]="['/dashboard/medic', medic._id]">
                     <svg class="table__edit-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M1.438 16.872l-1.438 7.128 7.127-1.438 12.642-12.64-5.69-5.69-12.641 12.64zm2.271 2.253l-.85-.849 11.141-11.125.849.849-11.14 11.125zm20.291-13.436l-2.817 2.819-5.69-5.691 2.816-2.817 5.691 5.689z"/></svg>
                 </a>
 

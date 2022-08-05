@@ -9,14 +9,14 @@
   @include flex(column, nowrap, flex-start, center);
   gap: 30px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     @include flex(row, nowrap, center, flex-start);
   }
 
   &__card {
     width: 100%;
 
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
       width: 50%;    
     }
   }
