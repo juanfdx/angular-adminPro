@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { User } from 'src/app/interfaces/user.interface';
 import { ModalImageService } from 'src/app/services/modal-image.service';
 import { SearchsService } from 'src/app/services/searchs.service';
 import { UserService } from 'src/app/services/user.service';
+
+import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
+import { User } from 'src/app/interfaces/user.interface';
 
 @Component({
   selector: 'app-table-users',
@@ -104,7 +105,7 @@ export class TableUsersComponent implements OnInit {
 
   //OPEN MODAL
   openModal(user: User): void {
-    this.modalImageService.modalSource.next(user)
+    this.modalImageService.modalSource.next({data : user, type : 'users'})
   }
   
   //PAGINATION

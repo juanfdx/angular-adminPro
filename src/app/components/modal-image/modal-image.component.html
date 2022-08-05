@@ -12,7 +12,7 @@
     <div class="modal__body">
       <h3 class="modal__h3">Seleccione Imagen</h3>
       <div class="modal__img-container">
-        <img *ngIf="!imageTemp" class="modal__img" [src]="user?.image" alt="User photo">
+        <img *ngIf="!imageTemp" class="modal__img" [src]="data?.image" alt="User photo">
         <!-- si existe imageTemp solo se vera esa -->
         <img *ngIf="imageTemp" class="modal__img" [src]="imageTemp" alt="User photo">
       </div>

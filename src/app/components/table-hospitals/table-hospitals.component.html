@@ -5,7 +5,7 @@
 
       <div class="table__header-content">
         <div class="table__header-text">
-          <h4 class="table__h4">Users ({{total}})</h4>
+          <h4 class="table__h4">Hospitales ({{total}})</h4>
           <h6 class="table__h6">Hospitales registrados</h6>
         </div>
         <button class="table__header-btn"
@@ -30,22 +30,29 @@
               <img class="table__img" 
                    [src]="hospital.image" 
                    alt="Hospital picture"
-                   (click)="openModal()">
+                   (click)="openModal(hospital)">
             </td>
 
-            <td class="table__td">{{hospital.name}}</td>
+            <td class="table__td">
+              <div class="table__input-wrapper">
+                <input class="table__input" 
+                       type="text"
+                       placeholder="Hospital name..."
+                       [(ngModel)]="hospital.name">
+              </div>
+            </td>
 
             <td class="table__td">
 
               <div class="table__actions-wrapper">
                 <a class="table__btn-delete"
-                    (click)="saveHospital()">
+                    (click)="updateHospital(hospital)">
                   <svg _ngcontent-itl-c64="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="table__save-svg"><path _ngcontent-itl-c64="" d="M13 3h2.996v5h-2.996v-5zm11 1v20h-24v-24h20l4 4zm-17 5h10v-7h-10v7zm15-4.171l-2.828-2.829h-.172v9h-14v-9h-3v20h20v-17.171z"></path>
                   </svg>
                 </a>
 
                 <a class="table__btn-delete"
-                    (click)="deleteHospital()">
+                    (click)="deleteHospital(hospital)">
                   <svg class="table__svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/>
                   </svg>
                 </a>

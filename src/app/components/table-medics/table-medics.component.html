@@ -27,7 +27,7 @@
               <img class="table__img" 
                    [src]="medic.image" 
                    alt="Medic photo"
-                   (click)="openModal()">
+                   (click)="openModal(medic)">
             </td>
 
             <td class="table__td">{{medic.name}}</td>
@@ -36,13 +36,12 @@
 
               <div class="table__actions-wrapper">
                 <a class="table__btn-delete"
-                    (click)="saveMedic()">
-                  <svg _ngcontent-itl-c64="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="table__save-svg"><path _ngcontent-itl-c64="" d="M13 3h2.996v5h-2.996v-5zm11 1v20h-24v-24h20l4 4zm-17 5h10v-7h-10v7zm15-4.171l-2.828-2.829h-.172v9h-14v-9h-3v20h20v-17.171z"></path>
-                  </svg>
+                    (click)="updateMedic(medic)">
+                    <svg class="table__edit-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M1.438 16.872l-1.438 7.128 7.127-1.438 12.642-12.64-5.69-5.69-12.641 12.64zm2.271 2.253l-.85-.849 11.141-11.125.849.849-11.14 11.125zm20.291-13.436l-2.817 2.819-5.69-5.691 2.816-2.817 5.691 5.689z"/></svg>
                 </a>
 
                 <a class="table__btn-delete"
-                    (click)="deleteMedic()">
+                    (click)="deleteMedic(medic)">
                   <svg class="table__svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/>
                   </svg>
                 </a>

@@ -12,7 +12,8 @@ import Swal from 'sweetalert2';
 })
 export class ModalImageComponent implements OnInit {
 
-  public user         : any
+  public data         : any
+  public type         : string = ''
   public active       : boolean = false
   public uploadImage! : File
   public imageTemp    : any
@@ -30,12 +31,12 @@ export class ModalImageComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription$ = this.modalImageService.modal$.subscribe(res => {
-      //si res no es un obj vacio
+      //si la res, no es un obj vacio
       if (Object.keys(res).length !== 0) {
         this.active = true
-        this.user = res
-      }
-      
+        this.data = res.data
+        this.type = res.type
+      }    
     })
   }
 
@@ -61,10 +62,10 @@ export class ModalImageComponent implements OnInit {
   }
 
   updateImage(): void {
-    this.fileUploadService.uploadImage('users', this.user._id, this.uploadImage)
+    this.fileUploadService.uploadImage(this.type, this.data._id, this.uploadImage)
           .subscribe({
             next: res => {          
-              this.user.image = res.fileName
+              this.data.image = res.fileName
               Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -72,6 +73,9 @@ export class ModalImageComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 2000
               }) 
+              this.imageTemp = null
+              this.myFileInput.nativeElement.value = ''
+              this.disabled = this.myFileInput.nativeElement.value.length
               this.active = false       
             },
             error: err => Swal.fire('Error!!!', 'No se pudo subir la imagen!', 'error')
@@ -80,11 +84,10 @@ export class ModalImageComponent implements OnInit {
   }
 
   closeModal(): void {
-    this.active = false
     this.imageTemp = null;
-    
-    this.myFileInput.nativeElement.value = '';
+    this.myFileInput.nativeElement.value = '' //vaciamos el input file
     this.disabled = this.myFileInput.nativeElement.value.length
+    this.active = false
   }
 
   ngOnDestroy(): void {

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { PipesModule } from '../pipes/pipes.module';
 //components
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
@@ -12,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './users/users.component';
 import { MedicsComponent } from './medics/medics.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
+import { MedicComponent } from './medic/medic.component';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { HospitalsComponent } from './hospitals/hospitals.component';
     ProfileComponent,
     UsersComponent,
     MedicsComponent,
-    HospitalsComponent
+    HospitalsComponent,
+    MedicComponent
   ],
   exports : [
     DashboardComponent,
@@ -31,14 +34,16 @@ import { HospitalsComponent } from './hospitals/hospitals.component';
     ProfileComponent,
     UsersComponent,
     MedicsComponent,
-    HospitalsComponent
+    HospitalsComponent,
+    MedicComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     ComponentsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    PipesModule
   ]
 })
 export class PagesModule { }

@@ -33,13 +33,13 @@ export class FileUploadService {
   UPLOAD IMAGE
 ============================================================*/
 
-  uploadImage(type: string, userId: string, image: any): Observable<any> {
+  uploadImage(type: string, id: string, image: any): Observable<any> {
 
     //tratamos la imagen a subir es siempre asi
     const data = new FormData();
     data.append('image', image);
 
-    return this.http.put(`${this.base_url}/upload/${type}/${userId}`, data, this.headers)
+    return this.http.put(`${this.base_url}/upload/${type}/${id}`, data, this.headers)
                   .pipe(
                     map( (res: any) => {
                       let { fileName } = res

@@ -43,4 +43,26 @@ export class HospitalService {
                   })
                 )
   }
+
+  /*===========================================================
+    CREATE HOSPITAL
+  ============================================================*/
+  createHospital(name: string): Observable<any> {
+    return this.http.post(`${this.base_url}/hospitals`, {name}, this.headers) 
+  }
+
+  /*===========================================================
+    UPDATE HOSPITAL
+  ============================================================*/
+  updateHospital(id: string, name: string): Observable<any> {
+    return this.http.put(`${this.base_url}/hospitals/${id}`, {name}, this.headers)
+  }
+
+  /*===========================================================
+    DELETE HOSPITAL
+  ============================================================*/
+  deleteHospital(id: string): Observable<any> {
+    return this.http.delete(`${this.base_url}/hospitals/${id}`, this.headers)
+  }
+
 }
