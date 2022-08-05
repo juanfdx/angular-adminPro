@@ -6,9 +6,12 @@
       <div class="table__header-content">
         <div class="table__header-text">
           <h4 class="table__h4">Users ({{total}})</h4>
-          <h6 class="table__h6">Registered users</h6>
+          <h6 class="table__h6">Hospitales registrados</h6>
         </div>
-        <button class="table__header-btn">Crear hospital</button>
+        <button class="table__header-btn"
+                (click)="createHospital()">
+          Crear hospital
+        </button>
       </div>
 
       <table class="table__table-hospitals">

@@ -19,11 +19,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', component: DashboardComponent, data: { title: 'Dashboard' } },
-      { path: 'account-settings', component: AccountSettingsComponent, data: { title: 'Settings' } },
-      { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } },
-      { path: 'users', component: UsersComponent, data: { title: 'Users' } },
-      { path: 'hospitals', component: HospitalsComponent, data: { title: 'Hospitals' } },
-      { path: 'medics', component: MedicsComponent, data: { title: 'Medics' } },
+      { path: 'account-settings', component: AccountSettingsComponent, data: { title: 'Configuración' } },
+      { path: 'profile', component: ProfileComponent, data: { title: 'Perfil' } },
+      { path: 'users', component: UsersComponent, data: { title: 'Usuarios' } },
+      { path: 'hospitals', component: HospitalsComponent, data: { title: 'Hospitales' } },
+      { path: 'medics', component: MedicsComponent, data: { title: 'Médicos' } },
     ]
   },
 

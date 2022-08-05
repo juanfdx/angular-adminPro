@@ -13,6 +13,7 @@ export class SearchsService {
 
   public base_url: string = environment.base_url;
 
+  //SEARCH TERM SERVICE
   public searchSource = new BehaviorSubject<string>('')
   public search$ = this.searchSource.asObservable()  
 

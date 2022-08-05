@@ -13,22 +13,22 @@
   },
   {
     "id"      : 2,
-    "title"   : "Maintenance",
+    "title"   : "Mantenimientos",
     "icon"    : "folder",
     "submenu" : [
       { 
         "id"    : 1,
-        "title" : "Users", 
+        "title" : "Usuarios", 
         "url"   : "users" 
       },
       { 
         "id"    : 2,
-        "title" : "Hospitals", 
+        "title" : "Hospitales", 
         "url"   : "hospitals" 
       },
       { 
         "id"    : 3,
-        "title" : "Medics", 
+        "title" : "Médicos", 
         "url"   : "medics" 
       }
     ]

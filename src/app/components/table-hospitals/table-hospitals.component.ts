@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Hospital } from 'src/app/interfaces/hospital.interface';
 import { HospitalService } from 'src/app/services/hospital.service';
+import { SearchsService } from 'src/app/services/searchs.service';
+import { Hospital } from 'src/app/interfaces/hospital.interface';
+import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,11 +20,20 @@ export class TableHospitalsComponent implements OnInit {
   public from      : number = 0
   public term      : string = ''
 
-  constructor(private hospitalService: HospitalService) { }
+  private subscription$!: Subscription
+
+  
+  constructor(private hospitalService: HospitalService,
+              private searchService: SearchsService) { }
 
 
   ngOnInit(): void {
     this.getHospitals()
+
+    this.subscription$ = this.searchService.search$.subscribe( res => {
+      this.term = res
+      this.search(this.term) 
+    })
   }
 
 
@@ -36,6 +47,22 @@ export class TableHospitalsComponent implements OnInit {
       },
       error: err => Swal.fire('Error!!!', 'Error inesperado!', 'error') 
     })
+  }
+
+  //SEARCH
+  search(term: string): void {
+    if (term.length === 0) {
+      this.getHospitals();
+      return;
+    }
+    this.searchService.search('hospitals', term).subscribe( res => {
+      this.hospitals = res.data
+      this.total     = res.total   
+    })
+  }
+
+  createHospital(): void {
+
   }
 
   saveHospital(): void {
@@ -57,5 +84,9 @@ export class TableHospitalsComponent implements OnInit {
     if (this.from <  0) { this.from = 0 } 
     if (this.from >= this.total) { this.from -= value }
     this.getHospitals()
+  }
+
+  ngOnDestroy(): void {
+    this.subscription$.unsubscribe();
   }
 }
