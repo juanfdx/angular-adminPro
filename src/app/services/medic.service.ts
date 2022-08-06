@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { map, Observable } from 'rxjs';
 import { imageUrl } from '../helpers/imageurl';
+import { MedicForm } from '../interfaces/medic-form.interface';
 
 
 @Injectable({
@@ -47,16 +48,26 @@ export class MedicService {
   }
 
   /*===========================================================
-    GET ONE MEDIC - by id
+    GET ONE MEDIC - by id 
   ============================================================*/
+  //no tratamos la img con imageUrl() para poder usar el pipe image en este caso
+  getMedic(id: string): Observable<any> {
+    return this.http.get(`${this.base_url}/medics/${id}`, this.headers)
+  }
 
   /*===========================================================
     CREATE MEDIC
   ============================================================*/
+  createMedic(formData: MedicForm): Observable<any> {
+    return this.http.post(`${this.base_url}/medics`, formData, this.headers)
+  }
 
   /*===========================================================
     UPDATE MEDIC
   ============================================================*/
+  updateMedic(id: string, formData: MedicForm): Observable<any> {
+    return this.http.put(`${this.base_url}/medics/${id}`, formData, this.headers)
+  }
 
   /*===========================================================
     DELETE MEDIC

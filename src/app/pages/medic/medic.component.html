@@ -1,6 +1,6 @@
 <div class="medic">
 
-  <div class="medic__card">
+  <div class="medic__card medic__card--left">
     <div class="medic__card-body">
 
       <h4 class="medic__h4">Médico</h4>
@@ -9,6 +9,14 @@
       <form class="medic__form" 
             [formGroup]="medicForm"
             (ngSubmit)="saveMedic()">
+        
+        <div *ngIf="selectedMedic" class="medic__form-group">
+          <div class="medic__img-wrapper">
+            <img class="medic__img" 
+                 [src]="selectedMedic.image | image: 'medics'" 
+                 alt="Medic photo">
+          </div>
+        </div>
 
         <div class="medic__form-group">
           <label class="medic__label" for="">Nombre</label>
@@ -40,7 +48,7 @@
           </div>
         </div>
 
-        <div class="medic__form-group">
+        <div class="medic__form-group medic__form-group--last-child">
           <label class="medic__label" for="">Hospital</label>
           <div class="medic__input-group">
 
@@ -52,9 +60,10 @@
             </div>
 
             <div class="medic__select-wrapper">
+
               <select class="medic__hospital-selector"
                       formControlName="hospital">
-                <option on value="">Seleccionar hospital</option>
+                <option value="">Seleccionar hospital</option>
                 <option *ngFor="let hospital of hospitals" [value]="hospital._id">
                   {{hospital.name}}
                 </option>
@@ -86,15 +95,16 @@
   </div>
 
 
-  <div class="medic__card">
+  <div class="medic__card medic__card--right animate__animated animate__fadeIn animate__faster" 
+       *ngIf="selectedHospital" >
     <div class="medic__card-body">
 
       <h4 class="medic__h4">Hospital</h4>
-      <h6 class="medic__h6">Hospital Materno Infantil</h6>
+      <h6 class="medic__h6">{{selectedHospital.name}}</h6>
 
       <div class="medic__img-container">
         <img class="medic__hospital-img" 
-             [src]="'/assets/images/background/login-register.jpg'" 
+             [src]="selectedHospital.image" 
              alt="Hospital image">
       </div>
 
