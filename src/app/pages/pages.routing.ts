@@ -12,6 +12,7 @@ import { HospitalsComponent } from './hospitals/hospitals.component';
 import { MedicsComponent } from './medics/medics.component';
 import { MedicComponent } from './medic/medic.component';
 import { SearchComponent } from './search/search.component';
+import { AdminGuard } from '../guards/admin.guard';
 
 
 const routes: Routes = [
@@ -23,11 +24,12 @@ const routes: Routes = [
       { path: '', component: DashboardComponent, data: { title: 'Dashboard' } },
       { path: 'account-settings', component: AccountSettingsComponent, data: { title: 'Configuración' } },
       { path: 'profile', component: ProfileComponent, data: { title: 'Perfil' } },
-      { path: 'users', component: UsersComponent, data: { title: 'Usuarios' } },
       { path: 'hospitals', component: HospitalsComponent, data: { title: 'Hospitales' } },
       { path: 'medics', component: MedicsComponent, data: { title: 'Médicos' } },
       { path: 'medic/:id', component: MedicComponent, data: { title: 'Médico' } },
       { path: 'search/:term', component: SearchComponent, data: { title: 'Search' } },
+      //Admin routes
+      { path: 'users', canActivate: [AdminGuard], component: UsersComponent, data: { title: 'Usuarios' } },
     ]
   },
 

@@ -21,7 +21,7 @@ export class SidebarComponent implements OnInit {
   public sideMenu    : number = -1
   public screenWidth : number = 0
   public theme       : any
-  public sidebarMenu : any
+  public sidebarMenu : any[] = []
   public user!       : User
 
 
@@ -59,9 +59,10 @@ export class SidebarComponent implements OnInit {
   }
 
   getSidebarMenu(): void {
-    this.sidebarService.getSidebarMenu().subscribe((res: any) => {
+    const observer4$ = this.sidebarService.menu$.subscribe((res: any) => {
       this.sidebarMenu = res
     })
+    this.listObservers$.push(observer4$)
   }
 
   toggleMenu(): void {

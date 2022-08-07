@@ -43,11 +43,15 @@ export class UserService {
   //GETTERS:
   //usuario que esta logueado
   public get userId() : string {
-    return this.user._id || '';
+    return this.user._id || ''
+  }
+
+  public get role() : "ADMIN_ROLE" | "USER_ROLE" {
+    return this.user.role!
   }
 
   public get token(): string {
-    return localStorage.getItem('token') || '';
+    return localStorage.getItem('token') || ''
   }
 
   public get headers() : object {

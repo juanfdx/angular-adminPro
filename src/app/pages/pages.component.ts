@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SidebarService } from '../services/sidebar.service';
 
 @Component({
   selector: 'app-pages',
@@ -9,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sidebarService: SidebarService) { }
 
   ngOnInit(): void {
+    //carga el menu de maintenance desde el localstorage
+    //en pages pq pages tiene las paginas que puede ver un usuario logeado
+    this.sidebarService.loadMenu()
   }
 
 }
