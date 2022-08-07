@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { delay } from 'rxjs';
+import { capitalize } from 'src/app/helpers/capitalize';
 import { Hospital } from 'src/app/interfaces/hospital.interface';
 import { HospitalService } from 'src/app/services/hospital.service';
 import { MedicService } from 'src/app/services/medic.service';
@@ -97,6 +98,7 @@ export class MedicComponent implements OnInit {
   saveMedic(): void {
     //si existe selectedMedic es que estamos actualizando
     if (this.selectedMedic) {
+
       this.medicService.updateMedic(this.selectedMedic._id, this.medicForm.value)
           .subscribe({
             next: res => {
@@ -118,6 +120,7 @@ export class MedicComponent implements OnInit {
 
     //si no existe selectedMedic es que estamos creando un nuevo medico  
     } else {
+
       this.medicService.createMedic(this.medicForm.value).subscribe({
         next: res => {
           

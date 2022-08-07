@@ -11,6 +11,7 @@ import { UsersComponent } from './users/users.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
 import { MedicsComponent } from './medics/medics.component';
 import { MedicComponent } from './medic/medic.component';
+import { SearchComponent } from './search/search.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'hospitals', component: HospitalsComponent, data: { title: 'Hospitales' } },
       { path: 'medics', component: MedicsComponent, data: { title: 'Médicos' } },
       { path: 'medic/:id', component: MedicComponent, data: { title: 'Médico' } },
+      { path: 'search/:term', component: SearchComponent, data: { title: 'Search' } },
     ]
   },
 

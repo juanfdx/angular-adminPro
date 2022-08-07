@@ -14,6 +14,7 @@ import { UsersComponent } from './users/users.component';
 import { MedicsComponent } from './medics/medics.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
 import { MedicComponent } from './medic/medic.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MedicComponent } from './medic/medic.component';
     UsersComponent,
     MedicsComponent,
     HospitalsComponent,
-    MedicComponent
+    MedicComponent,
+    SearchComponent
   ],
   exports : [
     DashboardComponent,
@@ -35,7 +37,8 @@ import { MedicComponent } from './medic/medic.component';
     UsersComponent,
     MedicsComponent,
     HospitalsComponent,
-    MedicComponent
+    MedicComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,

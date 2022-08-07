@@ -37,7 +37,10 @@ export class SearchsService {
   /*===========================================================
     GLOBAL SEARCH
   ============================================================*/
-
+  globalSearch(term: string, from: number = 0): Observable<any> {
+  //no tratamos las img con imageUrl() para poder usar el pipe image en este caso
+    return this.http.get(`${this.base_url}/all/${term}?from=${from}`, this.headers)
+  }
 
   /*===========================================================
     SEARCH - by type

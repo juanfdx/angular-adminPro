@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { map, Observable } from 'rxjs';
 import { imageUrl } from '../helpers/imageurl';
 import { MedicForm } from '../interfaces/medic-form.interface';
+import { capitalize } from '../helpers/capitalize';
 
 
 @Injectable({
@@ -50,7 +51,7 @@ export class MedicService {
   /*===========================================================
     GET ONE MEDIC - by id 
   ============================================================*/
-  //no tratamos la img con imageUrl() para poder usar el pipe image en este caso
+  //no tratamos las img con imageUrl() para poder usar el pipe image en este caso
   getMedic(id: string): Observable<any> {
     return this.http.get(`${this.base_url}/medics/${id}`, this.headers)
   }
@@ -59,14 +60,29 @@ export class MedicService {
     CREATE MEDIC
   ============================================================*/
   createMedic(formData: MedicForm): Observable<any> {
-    return this.http.post(`${this.base_url}/medics`, formData, this.headers)
+
+    const data = {
+      ...formData,
+      name     : capitalize(formData.name),
+      lastName : capitalize(formData.lastName),
+    }
+
+    return this.http.post(`${this.base_url}/medics`, data, this.headers)
   }
 
   /*===========================================================
     UPDATE MEDIC
   ============================================================*/
   updateMedic(id: string, formData: MedicForm): Observable<any> {
-    return this.http.put(`${this.base_url}/medics/${id}`, formData, this.headers)
+
+    //capitalizamos los campos name y lastName
+    const data = {
+      ...formData,
+      name     : capitalize(formData.name),
+      lastName : capitalize(formData.lastName),
+    }
+    
+    return this.http.put(`${this.base_url}/medics/${id}`, data, this.headers)
   }
 
   /*===========================================================
