@@ -90,6 +90,7 @@ export class TableMedicsComponent implements OnInit {
               showConfirmButton: false,
               timer: 2000
             })
+            this.from = 0
             this.getMedics();
           },
           error: err => Swal.fire('Error!!!', 'No se pudo borrar el médico!', 'error'),
@@ -102,6 +103,11 @@ export class TableMedicsComponent implements OnInit {
   //OPEN MODAL
   openModal(medic: any): void {
     this.modalImageService.modalSource.next({data : medic, type : 'medics'})
+  }
+
+  //TOTAL DE PAGINAS
+  setTotalPages(): number {
+    return Math.ceil(this.total / this.pageSize)
   }
 
   //CURRENT PAGE

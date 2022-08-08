@@ -30,7 +30,7 @@ export class UserService {
       email    : '',
       image    : '',
       role     : 'USER_ROLE',
-      status   : 'inactive'
+      status   : 'active'
     }
   ) 
   public user$ = this.userSource.asObservable()  
@@ -48,6 +48,10 @@ export class UserService {
 
   public get role() : "ADMIN_ROLE" | "USER_ROLE" {
     return this.user.role!
+  }
+
+  public get status() : "active" | "inactive" {
+    return this.user.status!
   }
 
   public get token(): string {

@@ -147,6 +147,7 @@ export class TableHospitalsComponent implements OnInit {
               showConfirmButton: false,
               timer: 2000
             })
+            this.from = 0
             this.getHospitals();
           },             
           error: err => Swal.fire('Error!!!', 'No se pudo borrar el hospital!', 'error')
@@ -159,6 +160,11 @@ export class TableHospitalsComponent implements OnInit {
   //OPEN MODAL
   openModal(hospital: any): void {
     this.modalImageService.modalSource.next({data : hospital, type : 'hospitals'})
+  }
+
+  //TOTAL DE PAGINAS
+  setTotalPages(): number {
+    return Math.ceil(this.total / this.pageSize)
   }
 
   //CURRENT PAGE

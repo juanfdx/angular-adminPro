@@ -47,7 +47,7 @@ export class TableUsersComponent implements OnInit {
         this.users = res.users
         this.total = res.total 
         this.setCurrentPage(this.from)       
-        this.loaded.emit(false)     
+        this.loaded.emit(false)    
       },
       error: err => Swal.fire('Error!!!', 'Error inesperado!', 'error')   
     })
@@ -96,6 +96,7 @@ export class TableUsersComponent implements OnInit {
           this.userService.deleteUser(user._id).subscribe({
             next: res => {
               Swal.fire('Usuario borrado', `${ user.name } ${ user.lastName }`, 'success');
+              this.from = 0
               this.getUsers()
             },
             error: err => Swal.fire('Error!!!', 'No se pudo borrar ese usuario.', 'error'),
@@ -109,6 +110,11 @@ export class TableUsersComponent implements OnInit {
   //OPEN MODAL
   openModal(user: User): void {
     this.modalImageService.modalSource.next({data : user, type : 'users'})
+  }
+
+  //TOTAL DE PAGINAS
+  setTotalPages(): number {
+     return Math.ceil(this.total / this.pageSize)
   }
   
   //CURRENT PAGE
