@@ -23,6 +23,8 @@ export class TableHospitalsComponent implements OnInit {
   public from         : number = 0
   public term         : string = ''
   public hospitalName : string = ''
+  public pageSize     : number = 5
+  public currentPage  : number = 1
 
   private subscription$!: Subscription
 
@@ -48,6 +50,7 @@ export class TableHospitalsComponent implements OnInit {
       next: res => {
         this.hospitals = res.hospitals
         this.total = res.total
+        this.setCurrentPage(this.from)       
         this.loaded.emit(false)
       },
       error: err => Swal.fire('Error!!!', 'Error inesperado!', 'error') 
@@ -57,8 +60,8 @@ export class TableHospitalsComponent implements OnInit {
   //SEARCH
   search(term: string): void {
     if (term.length === 0) {
-      this.getHospitals();
-      return;
+      this.getHospitals()
+      return
     }
     this.searchService.search('hospitals', term).subscribe( res => {
       this.hospitals = res.data
@@ -158,11 +161,26 @@ export class TableHospitalsComponent implements OnInit {
     this.modalImageService.modalSource.next({data : hospital, type : 'hospitals'})
   }
 
+  //CURRENT PAGE
+  setCurrentPage(from: number): void {
+    if (from < this.pageSize) {
+      this.currentPage = 1  
+    } else {
+      this.currentPage = Math.ceil(from / this.pageSize) + 1
+    }
+  }
+
   //PAGINATION
   pagination( value: number): void {
     this.from += value;
-    if (this.from <  0) { this.from = 0 } 
-    if (this.from >= this.total) { this.from -= value }
+    if (this.from <  0) { 
+      this.from = 0 
+      return
+    } 
+    if (this.from >= this.total) { 
+      this.from -= value 
+      return
+    }
     this.getHospitals()
   }
 

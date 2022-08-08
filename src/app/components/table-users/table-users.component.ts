@@ -21,6 +21,8 @@ export class TableUsersComponent implements OnInit {
   public total : number = 0
   public from  : number = 0
   public term  : string = ''
+  public pageSize    : number = 5
+  public currentPage : number = 1
 
   private subscription$!: Subscription;
 
@@ -43,7 +45,8 @@ export class TableUsersComponent implements OnInit {
     this.userService.getAllUsers(this.from).subscribe({
       next: res => {
         this.users = res.users
-        this.total = res.total
+        this.total = res.total 
+        this.setCurrentPage(this.from)       
         this.loaded.emit(false)     
       },
       error: err => Swal.fire('Error!!!', 'Error inesperado!', 'error')   
@@ -53,8 +56,8 @@ export class TableUsersComponent implements OnInit {
   //SEARCH
   search(term: string): void {
     if (term.length === 0) {
-      this.getUsers();
-      return;
+      this.getUsers()
+      return
     }
     this.searchService.search('users', term).subscribe( res => {
       this.users = res.data
@@ -108,11 +111,26 @@ export class TableUsersComponent implements OnInit {
     this.modalImageService.modalSource.next({data : user, type : 'users'})
   }
   
+  //CURRENT PAGE
+  setCurrentPage(from: number): void {
+    if (from < this.pageSize) {
+      this.currentPage = 1  
+    } else {
+      this.currentPage = Math.ceil(from / this.pageSize) + 1
+    }
+  }
+
   //PAGINATION
   pagination( value: number): void {
     this.from += value;
-    if (this.from <  0) { this.from = 0 } 
-    if (this.from >= this.total) { this.from -= value }
+    if (this.from <  0) { 
+      this.from = 0 
+      return
+    } 
+    if (this.from >= this.total) { 
+      this.from -= value 
+      return
+    }
     this.getUsers()
   }
 

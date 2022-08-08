@@ -145,10 +145,15 @@
     color: #F25351;
   }
 
+  /* ----- PAGINATION ----- */
+
   &__buttons-container {
     width: 100%;
+    @include flex(row, nowrap, space-between, flex-end);
+  }
 
-    @include flex(row, nowrap, flex-end, center);
+  &__page-buttons {
+    @include flex(row, nowrap, flex-start, center);
     gap: 10px;
   }
 
@@ -169,6 +174,12 @@
       background-color: #727b84;
       border-color: #6c757d;
     }
+  }
+
+  &__page-number {
+    padding: 0 15px;
+    color: #67757c;
+    pointer-events: none;
   }
 }
 

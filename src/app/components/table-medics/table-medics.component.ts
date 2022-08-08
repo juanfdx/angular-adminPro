@@ -22,6 +22,8 @@ export class TableMedicsComponent implements OnInit {
   public total  : number = 0
   public from   : number = 0
   public term   : string = ''
+  public pageSize    : number = 5
+  public currentPage : number = 1
 
   private subscription$!: Subscription
 
@@ -46,6 +48,7 @@ export class TableMedicsComponent implements OnInit {
       next: res => {
         this.medics = res.medics
         this.total = res.total
+        this.setCurrentPage(this.from)       
         this.loaded.emit(false)
       },
       error: err => Swal.fire('Error!!!', 'Error inesperado!', 'error') 
@@ -100,12 +103,27 @@ export class TableMedicsComponent implements OnInit {
   openModal(medic: any): void {
     this.modalImageService.modalSource.next({data : medic, type : 'medics'})
   }
+
+  //CURRENT PAGE
+  setCurrentPage(from: number): void {
+    if (from < this.pageSize) {
+      this.currentPage = 1  
+    } else {
+      this.currentPage = Math.ceil(from / this.pageSize) + 1
+    }
+  }
   
   //PAGINATION
-  pagination( value: number): void {
+  pagination( value: number): void {  
     this.from += value;
-    if (this.from <  0) { this.from = 0 } 
-    if (this.from >= this.total) { this.from -= value }
+    if (this.from <  0) { 
+      this.from = 0 
+      return
+    } 
+    if (this.from >= this.total) { 
+      this.from -= value 
+      return
+    }
     this.getMedics()
   }
 

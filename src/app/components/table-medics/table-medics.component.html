@@ -57,16 +57,26 @@
       </table>
 
 
+      <!-- pagination -->
       <div *ngIf="term.length === 0 " class="table__buttons-container">
-        <button class="table__page-btn"
-                (click)="pagination(-5)">
-          Ant.
-        </button>
-        <button class="table__page-btn"
-                (click)="pagination(5)">
-          Sig.
-        </button>
+
+        <div class="table__page-buttons">
+          <button class="table__page-btn"
+                  (click)="pagination(-5)">
+            Ant.
+          </button>
+          <button class="table__page-btn"
+                  (click)="pagination(5)">
+            Sig.
+          </button>
+        </div>
+
+        <div class="table__page-indicator">
+          <span class="table__page-number">{{currentPage}}</span>
+        </div>
+
       </div>
+      <!-- end pagination -->
 
     </div>
   </div>
