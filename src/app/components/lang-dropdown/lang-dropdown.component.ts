@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
+import { TranslateService } from '@ngx-translate/core';
+import { SwitchLangService } from 'src/app/services/switch-lang.service';
 
 
 @Component({
@@ -12,11 +12,23 @@ export class LangDropdownComponent implements OnInit {
 
   @Input() dropLang : boolean = false
   @Output() close = new EventEmitter<boolean>();
+  
+  public currentLang: string = 'es'
 
 
-  constructor() { }
+  constructor(private translateService: TranslateService,
+              private switchLangService: SwitchLangService) { 
+
+    // translateService.use(this.currentLang);
+  }
 
   ngOnInit(): void {
+  }
+
+  selectLanguage(lang:string) {
+    this.currentLang = lang
+    this.translateService.use(this.currentLang)
+    this.switchLangService.langSource.next(lang)
   }
 
   clickClose(): void {

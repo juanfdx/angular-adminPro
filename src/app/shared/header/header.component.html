@@ -63,8 +63,15 @@
         
         <!-- languages flag icon -->
         <li appStopPropagation class="header__navbar-item">
-          <a (click)="dropdownLang()" class="header__navbar-link">
-            <img class="header__navbar-img-flag" [src]="'/assets/images/flags/es.svg'" [alt]="'es flag'">
+          <a *ngIf="langActive === 'es'" 
+             (click)="dropdownLang()" 
+             class="header__navbar-link">
+            <img class="header__navbar-img-flag" [src]="'/assets/images/flags/es.svg'" [alt]="'Spanish flag'">
+          </a>
+          <a *ngIf="langActive === 'en'" 
+             (click)="dropdownLang()" 
+             class="header__navbar-link">
+            <img class="header__navbar-img-flag" [src]="'/assets/images/flags/gb.svg'" [alt]="'English flag'">
           </a>
 
           <app-lang-dropdown [dropLang]="dropLang"

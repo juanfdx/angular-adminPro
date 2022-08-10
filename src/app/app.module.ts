@@ -11,6 +11,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AppComponent } from './app.component';
 import { PageError404Component } from './page-error404/page-error404.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,7 @@ import { PageError404Component } from './page-error404/page-error404.component';
     AuthModule,
     SharedModule,
     HttpClientModule,
-    SweetAlert2Module
+    SweetAlert2Module,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemesService } from 'src/app/services/themes.service';
 import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
+import { SwitchLangService } from 'src/app/services/switch-lang.service';
 import { UserService } from 'src/app/services/user.service';
 import { Subscription } from 'rxjs';
 //interfaces
@@ -22,17 +23,20 @@ export class HeaderComponent implements OnInit {
   public screenWidth : number = 0
   public theme       : any
   public user        : any
+  public langActive  : string = 'es'
 
   public listObservers$: Subscription[] = [];
 
 
   constructor(private toggleMenuService: ToggleMenuService,
               private themesService: ThemesService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private switchLangService: SwitchLangService) { }
 
 
   ngOnInit(): void {
     this.setTheme()
+    this.setLangActive()
     this.toggleMenu()
     this.closeDropdowns()
     this.screenWidth = window.innerWidth
@@ -42,6 +46,13 @@ export class HeaderComponent implements OnInit {
       this.user = res    
      })
     this.listObservers$.push(observer4$)  
+  }
+
+  setLangActive(): void {
+    const observer5$ = this.switchLangService.lang$.subscribe( lang => {
+      this.langActive = lang
+    })
+    this.listObservers$.push(observer5$)  
   }
 
   toggleMenu(): void {
