@@ -1,6 +1,6 @@
 <div *ngIf="loading" class="loading">
 
-  <h4 class="loading__h4">Cargando</h4>
+  <h4 class="loading__h4">{{ 'Loading' | translate }}</h4>
   
   <svg class="loading__svg" width="700pt" height="700pt" version="1.1" viewBox="0 -60 700 700" xmlns="http://www.w3.org/2000/svg">
     <g fill-rule="evenodd">
@@ -9,6 +9,6 @@
     </g>
    </svg>
 
-  <p class="loading__p">Por favor espere</p>
+  <p class="loading__p">{{ 'Please wait' | translate }}</p>
 
 </div>

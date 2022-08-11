@@ -4,7 +4,7 @@
 
   <input class="search__input" 
          type="text" 
-         placeholder="Buscar & enter"
+         [placeholder]=" 'searchEnter' |translate "
          #txtTerm>
 
   <a (click)="hideSearchForm()" class="search__close-link">

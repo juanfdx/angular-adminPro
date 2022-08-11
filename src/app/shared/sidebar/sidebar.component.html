@@ -44,7 +44,7 @@
                   <a class="sidebar__profile-link"
                      [routerLink]="['profile']"
                      [routerLinkActive]="'sidebar__profile-link--active'">
-                    Mi Perfil
+                     {{ 'profile' | translate }}
                   </a>
                 </li>
 
@@ -53,12 +53,12 @@
                      [routerLink]="['account-settings']"
                      [routerLinkActive]="'sidebar__profile-link--active'" 
                      [routerLinkActiveOptions]="{exact : true}">
-                    Configuración
+                     {{ 'accountSetting' | translate }}
                   </a>
                 </li>
 
                 <li class="sidebar__li-profile sidebar__li-profile--logout">
-                  <a (click)="logout()" class="sidebar__profile-link">Cerrar sesión</a>
+                  <a (click)="logout()" class="sidebar__profile-link">{{ 'logout' |translate }}</a>
                 </li>
             </ul>
             <!-- end ul absolute -->
@@ -72,7 +72,7 @@
               <a class="sidebar__profile-link"
                 [routerLink]="['profile']"
                 [routerLinkActive]="'sidebar__profile-link--active'">
-                Mi Perfil
+                {{ 'profile' | translate }}
               </a>
             </li>
 
@@ -81,14 +81,14 @@
                  [routerLink]="['account-settings']"
                  [routerLinkActive]="'sidebar__profile-link--active'" 
                  [routerLinkActiveOptions]="{exact : true}">
-                Configuración
+                 {{ 'accountSetting' | translate }}
               </a>
             </li>
 
             <li class="sidebar__li-profile sidebar__li-profile--logout">
               <a (click)="logout()" 
                  class="sidebar__profile-link">
-                Cerrar sesión
+                 {{ 'logout' |translate }}
               </a>
             </li>
 
@@ -120,7 +120,7 @@
 
             <span class="sidebar__span" 
                   [ngClass]="{'sidebar__span--show': active, 'sidebar__span--hide': !active}">
-                  {{ item.title }}
+                  {{ item.title | translate}} 
             </span>
 
             <span [style]="{'backgroundColor' : theme.header}"
@@ -140,15 +140,15 @@
                 [ngClass]="{'sidebar__ul-profile-absolute--show': sideMenu === item.id}">
 
                 <span class="sidebar__span-absolute">
-                  {{ item.title }}
+                  {{ item.title | translate}} 
                 </span>
 
-                <li *ngFor="let item of item.submenu" class="sidebar__li-profile">
+                <li *ngFor="let subItem of item.submenu" class="sidebar__li-profile">
                   <a class="sidebar__profile-link"
-                     [routerLink]="[item.url]" 
+                     [routerLink]="[subItem.url]" 
                      [routerLinkActive]="'sidebar__profile-link--active'"
                      [routerLinkActiveOptions]="{exact : true}">
-                    {{ item.title }}
+                     {{ subItem.title | translate}}
                   </a>
                 </li>
             </ul>
@@ -160,12 +160,12 @@
                           'sidebar__ul-profile--show': active,
                           'sidebar__ul-profile--hide': !active}">
 
-            <li *ngFor="let item of item.submenu" class="sidebar__li-profile">
+            <li *ngFor="let subItem of item.submenu" class="sidebar__li-profile">
               <a class="sidebar__profile-link"
-                 [routerLink]="[item.url]" 
+                 [routerLink]="[subItem.url]" 
                  [routerLinkActive]="'sidebar__profile-link--active'"
                  [routerLinkActiveOptions]="{exact : true}">
-                {{ item.title }}
+                 {{ subItem.title | translate}}
               </a>
             </li>
             

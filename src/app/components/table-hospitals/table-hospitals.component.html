@@ -5,22 +5,22 @@
 
       <div class="table__header-content">
         <div class="table__header-text">
-          <h4 class="table__h4">Hospitales ({{total}})</h4>
-          <h6 class="table__h6">Hospitales registrados</h6>
+          <h4 class="table__h4">{{ 'Hospitals' | translate }} ({{total}})</h4>
+          <h6 class="table__h6">{{ 'Registered hospitals' | translate }}</h6>
         </div>
         <button class="table__header-btn"
                 (click)="createHospital()">
-          Crear hospital
+          {{ 'Create hospital' | translate }}
         </button>
       </div>
 
       <table class="table__table-hospitals">
         <thead>
           <tr>
-            <th class="table__th table__th--center">Avatar</th>
-            <th class="table__th">Nombre</th>
+            <th class="table__th table__th--center">{{ 'Photo' | translate }}</th>
+            <th class="table__th">{{ 'Name' | translate }}</th>
      
-            <th class="table__th table__th--center">Acciones</th>
+            <th class="table__th table__th--center">{{ 'Actions' | translate }}</th>
           </tr>
         </thead>
         <tbody>
@@ -71,11 +71,11 @@
         <div class="table__page-buttons">
           <button class="table__page-btn"
                   (click)="pagination(-5)">
-            Ant.
+            {{ 'Prev' | translate }}
           </button>
           <button class="table__page-btn"
                   (click)="pagination(5)">
-            Sig.
+            {{ 'Next' | translate }}
           </button>
         </div>
 

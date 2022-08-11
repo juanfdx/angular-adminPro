@@ -188,10 +188,11 @@ export class UserService {
   ============================================================*/
   logout() {
 
-    localStorage.removeItem('token');
-    localStorage.removeItem('menu');
+    localStorage.removeItem('token')
+    localStorage.removeItem('menu')
+    localStorage.removeItem('currentLang')
 
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/login')
   }
 
 }

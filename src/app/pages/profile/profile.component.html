@@ -3,15 +3,15 @@
   <div class="profile__card">
     <div class="profile__card-body">
 
-      <h4 class="profile__h4">Perfil de Usuario</h4>
-      <h6 class="profile__h6">Configuración</h6>
+      <h4 class="profile__h4">{{'User Profile' | translate}}</h4>
+      <h6 class="profile__h6">{{ 'Settings' | translate }}</h6>
 
       <form class="profile__form" 
             [formGroup]="profileForm"
             (ngSubmit)="updateProfile()">
 
         <div class="profile__form-group">
-          <label class="profile__label" for="">Nombre</label>
+          <label class="profile__label" for="">{{ 'Name' | translate }}</label>
           <div class="profile__input-group">
             <div class="profile__svg-container">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="profile__svg" viewBox="0 0 16 16">
@@ -26,7 +26,7 @@
         </div>
 
         <div class="profile__form-group">
-          <label class="profile__label" for="">Apellido</label>
+          <label class="profile__label" for="">{{ 'Last name'| translate }}</label>
           <div class="profile__input-group">
             <div class="profile__svg-container">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="profile__svg" viewBox="0 0 16 16">
@@ -41,7 +41,7 @@
         </div>
 
         <div class="profile__form-group">
-          <label class="profile__label" for="">Dirección de Correo</label>
+          <label class="profile__label" for="">{{ 'Email address'| translate }}</label>
           <div class="profile__input-group">
             <div class="profile__svg-container">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="profile__svg profile__svg--envelop" viewBox="0 0 16 16">
@@ -58,12 +58,12 @@
         <div class="profile__button-container">
           <button type="submit" class="profile__btn-save">
             <svg class="profile__save-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 3h2.996v5h-2.996v-5zm11 1v20h-24v-24h20l4 4zm-17 5h10v-7h-10v7zm15-4.171l-2.828-2.829h-.172v9h-14v-9h-3v20h20v-17.171z"/></svg>
-            Guardar
+            {{ 'Save' | translate }}
           </button>
           <button class="profile__btn-cancel" 
                   type="button" 
                   [routerLink]="['/dashboard']">
-                Cancelar
+                  {{ 'Cancel' | translate }}
           </button>
         </div>
 
@@ -76,7 +76,7 @@
     <div class="profile__card-body">
 
       <h4 class="profile__h4">Avatar</h4>
-      <h6 class="profile__h6">Imagen de usuario</h6>
+      <h6 class="profile__h6">{{ 'User image' | translate }}</h6>
 
       <div class="profile__img-container">
         <img *ngIf="!imageTemp" class="profile__img" [src]="user.image" alt="User photo">
@@ -95,7 +95,7 @@
               (click)="updateImage()">
 
         <svg class="profile__save-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 3h2.996v5h-2.996v-5zm11 1v20h-24v-24h20l4 4zm-17 5h10v-7h-10v7zm15-4.171l-2.828-2.829h-.172v9h-14v-9h-3v20h20v-17.171z"/></svg>
-        Actualizar
+        {{ 'Update' | translate }}
       </button>
 
     </div>

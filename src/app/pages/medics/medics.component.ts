@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicsComponent implements OnInit {
 
-  public page    : string = 'médico'
+  public page    : string = 'medic'
   public loading : boolean = true;
 
   constructor() { }

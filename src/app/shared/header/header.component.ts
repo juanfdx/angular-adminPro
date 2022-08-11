@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   public screenWidth : number = 0
   public theme       : any
   public user        : any
-  public langActive  : string = 'es'
+  public langActive  : string = localStorage.getItem('currentLang') || 'es'
 
   public listObservers$: Subscription[] = [];
 
@@ -50,7 +50,9 @@ export class HeaderComponent implements OnInit {
 
   setLangActive(): void {
     const observer5$ = this.switchLangService.lang$.subscribe( lang => {
-      this.langActive = lang
+      setTimeout(() => {    
+        this.langActive = lang
+      }, 100);
     })
     this.listObservers$.push(observer5$)  
   }

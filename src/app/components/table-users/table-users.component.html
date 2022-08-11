@@ -3,18 +3,18 @@
   <div class="table__card">
     <div class="table__card-body">
 
-      <h4 class="table__h4">Usuarios ({{total}})</h4>
-      <h6 class="table__h6">Usuarios registrados</h6>
+      <h4 class="table__h4">{{'Users' | translate}} ({{total}})</h4>
+      <h6 class="table__h6">{{'Registered users' | translate}}</h6>
 
       <table class="table__table-users">
         <thead>
           <tr>
-            <th class="table__th table__th--center">Avatar</th>
-            <th class="table__th">Correo</th>
-            <th class="table__th">Nombre</th>
-            <th class="table__th">Rol</th>
-            <th class="table__th table__th--center">Estatus</th>
-            <th class="table__th table__th--center">Acciones</th>
+            <th class="table__th table__th--center">{{ 'Photo' | translate }}</th>
+            <th class="table__th">{{ 'Email' | translate }}</th>
+            <th class="table__th">{{ 'Name' | translate }}</th>
+            <th class="table__th">{{ 'Role' | translate }}</th>
+            <th class="table__th table__th--center">{{ 'Status' | translate }}</th>
+            <th class="table__th table__th--center">{{ 'Actions' | translate }}</th>
           </tr>
         </thead>
         <tbody>
@@ -29,15 +29,15 @@
 
             <td class="table__td">{{user.email}}</td>
 
-            <td class="table__td">{{user.name}} {{user.lastName}}</td>
+            <td class="table__td">{{ user.name | titlecase }} {{ user.lastName | titlecase }}</td>
 
             <td class="table__td">
               <div class="table__select-wrapper">
                 <select class="table__select"
                         [(ngModel)]="user.role"
                         (change)="changeUserRole(user)">
-                  <option value="ADMIN_ROLE">adm</option>
-                  <option value="USER_ROLE">user</option>
+                  <option value="ADMIN_ROLE">{{ 'admin' | translate }}</option>
+                  <option value="USER_ROLE">{{ 'user' | translate }}</option>
                 </select>
                 <span class="table__span">&#8249;</span>
               </div>
@@ -47,12 +47,12 @@
               <button *ngIf="user.status === 'active'"  
                       class="table__status"
                       (click)="changeUserStatus(user)">
-                    {{user.status}}
+                      {{ user.status | translate}}
               </button>
               <button *ngIf="user.status !== 'active'"  
                       class="table__status table__status--inactive"
                       (click)="changeUserStatus(user)">
-                    {{user.status}}
+                      {{ user.status! | translate}}
               </button>
             </td>
 
@@ -73,11 +73,11 @@
         <div class="table__page-buttons">
           <button class="table__page-btn"
                   (click)="pagination(-5)">
-            Ant.
+            {{ 'Prev' | translate }}
           </button>
           <button class="table__page-btn"
                   (click)="pagination(5)">
-            Sig.
+            {{ 'Next' | translate }}
           </button>
         </div>
 

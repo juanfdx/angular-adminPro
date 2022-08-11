@@ -6,7 +6,7 @@
       <div class="search__input-wrapper">
         <input class="search__input" 
                type="text" 
-               [placeholder]="'Buscar ' + page + '...'"
+               placeholder="{{'Search' | translate}} {{ page | translate }}..."
                (keyup)="search(txtTerm.value)"
                #txtTerm>
       </div> 

@@ -13,22 +13,25 @@ export class LangDropdownComponent implements OnInit {
   @Input() dropLang : boolean = false
   @Output() close = new EventEmitter<boolean>();
   
-  public currentLang: string = 'es'
+  public currentLang: string = localStorage.getItem('currentLang') || 'es'
 
 
   constructor(private translateService: TranslateService,
               private switchLangService: SwitchLangService) { 
 
-    // translateService.use(this.currentLang);
+    translateService.use(this.currentLang);
   }
 
   ngOnInit(): void {
+    this.switchLangService.langSource.next(this.currentLang)
   }
 
   selectLanguage(lang:string) {
     this.currentLang = lang
     this.translateService.use(this.currentLang)
     this.switchLangService.langSource.next(lang)
+    //guardamos el lenguaje en el localstorage
+    localStorage.setItem('currentLang', lang)
   }
 
   clickClose(): void {

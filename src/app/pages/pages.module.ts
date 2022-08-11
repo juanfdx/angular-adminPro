@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { PipesModule } from '../pipes/pipes.module';
 //components
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -15,6 +16,12 @@ import { MedicsComponent } from './medics/medics.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
 import { MedicComponent } from './medic/medic.component';
 import { SearchComponent } from './search/search.component';
+//translate module
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
+}
 
 
 @NgModule({
@@ -46,7 +53,16 @@ import { SearchComponent } from './search/search.component';
     ComponentsModule,
     ReactiveFormsModule,
     RouterModule,
-    PipesModule
+    PipesModule,
+
+    TranslateModule.forRoot({
+      defaultLanguage: 'es',
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    })
   ]
 })
 export class PagesModule { }

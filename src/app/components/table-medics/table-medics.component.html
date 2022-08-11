@@ -5,22 +5,22 @@
 
       <div class="table__header-content">
         <div class="table__header-text">
-          <h4 class="table__h4">Médicos ({{total}})</h4>
-          <h6 class="table__h6">Médicos registrados</h6>
+          <h4 class="table__h4">{{ 'Medics' | translate }} ({{total}})</h4>
+          <h6 class="table__h6">{{ 'Registered Medics' | translate }}</h6>
         </div>
         <a class="table__header-btn"
                 routerLink="/dashboard/medic/new">
-          Crear médico
+            {{ 'Create medic' | translate }}
         </a>
       </div>
 
       <table class="table__table-medics">
         <thead>
           <tr>
-            <th class="table__th table__th--center">Avatar</th>
-            <th class="table__th">Nombre</th>
+            <th class="table__th table__th--center">{{ 'Photo' | translate }}</th>
+            <th class="table__th">{{ 'Name' | translate }}</th>
      
-            <th class="table__th table__th--center">Acciones</th>
+            <th class="table__th table__th--center">{{ 'Actions' | translate }}</th>
           </tr>
         </thead>
         <tbody>
@@ -33,7 +33,7 @@
                    (click)="openModal(medic)">
             </td>
 
-            <td class="table__td">{{medic.name}} {{medic.lastName}}</td>
+            <td class="table__td">{{ medic.name | titlecase}} {{ medic.lastName | titlecase }}</td>
 
             <td class="table__td">
 
@@ -63,11 +63,11 @@
         <div class="table__page-buttons">
           <button class="table__page-btn"
                   (click)="pagination(-5)">
-            Ant.
+            {{ 'Prev' | translate }}
           </button>
           <button class="table__page-btn"
                   (click)="pagination(5)">
-            Sig.
+            {{ 'Next' | translate }}
           </button>
         </div>
 
