@@ -29,6 +29,11 @@
       "Last name": "Apellido",
       "Email address": "Dirección de Correo",
       "Email": "Correo",
+      "Password": "Contraseña",
+      "Confirm Password": "Confirmar Contraseña",
+      "Remember me": "Recuérdame",
+      "I agree to all": "Acepto todos los",
+      "Terms": "Términos",
       "Role": "Rol",
       "Status": "Estatus",
       "Actions": "Acciones",
@@ -58,5 +63,14 @@
       "Prev": "Ant.",
       "Next": "Sig.",
       "Light sidebar": "Sidebar claro",
-      "Dark sidebar": "Sidebar oscuro"
+      "Dark sidebar": "Sidebar oscuro",
+      "LOG IN": "INICIAR SESIÓN",
+      "Forgot pwd?": "Olvidó pass?",
+      "Sign Up": "Registrate",
+      "SIGN UP": "REGISTRATE",
+      "Don't have an account?": "No tienes cuenta?",
+      "Register Now": "Regístrate ahora",
+      "Create your account and enjoy": "Crea tu cuenta",
+      "Already have an account?": "Ya tienes una cuenta?",
+      "Sign In": "Inicia Sesión"
     }

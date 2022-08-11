@@ -11,21 +11,21 @@
 
         <a class="login__logo">
           <img class="login__logo-img" 
-               [src]="'/assets/images/logo/logo-icon.png'" 
+               [src]="'/assets/images/icons/healthcare-icon.jpg'" 
                [alt]="'Admin logo'">
 
           <img class="login__logo-text" [src]="'/assets/images/logo/logo-text.png'" 
           alt="adminPro">
         </a>
 
-        <h3 class="login__h3">Register Now</h3>
-        <small class="login__small">Create your account and enjoy</small>
+        <h3 class="login__h3">{{'Register Now' | translate}}</h3>
+        <small class="login__small">{{'Create your account and enjoy' | translate}}</small>
 
         <div class="login__form-group">
           <div class="login__input-group">
             <input class="login__input" 
                    type="text" 
-                   placeholder="Name"
+                   [placeholder]=" 'Name' |translate "
                    formControlName="name">
 
             <p *ngIf="isRequired('name')" class="login__input-error">name required</p>
@@ -38,7 +38,7 @@
           <div class="login__input-group">
             <input class="login__input" 
                    type="text" 
-                   placeholder="Last name" 
+                   [placeholder]=" 'Last name' |translate " 
                    formControlName="lastName">
 
             <p *ngIf="isRequired('lastName')" class="login__input-error">lastName required</p>
@@ -51,7 +51,7 @@
           <div class="login__input-group">
             <input class="login__input" 
                    type="email" 
-                   placeholder="Email" 
+                   [placeholder]=" 'Email' |translate " 
                    formControlName="email">
 
             <p *ngIf="isRequired('email')" class="login__input-error">email required</p>
@@ -64,7 +64,7 @@
           <div class="login__input-group">
             <input class="login__input" 
                    type="password" 
-                   placeholder="Password" 
+                   [placeholder]=" 'Password' |translate " 
                    formControlName="password">
 
             <p *ngIf="isRequired('password')" class="login__input-error">password required</p>
@@ -77,7 +77,7 @@
           <div class="login__input-group">
             <input class="login__input" 
                    type="password" 
-                   placeholder="Confirm Password" 
+                   [placeholder]=" 'Confirm Password' |translate " 
                    formControlName="password2">
 
             <p *ngIf="isRequired('password2')" class="login__input-error">confirm password required</p>
@@ -96,7 +96,7 @@
                      type="checkbox"
                      formControlName="terms">
                      
-              <label class="login__label-checkbox"> I agree to all </label>
+              <label class="login__label-checkbox">{{'I agree to all' | translate}}</label>
 
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="login__check-svg" viewBox="0 0 16 16">
                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
@@ -104,7 +104,7 @@
    
             </div>
             
-            <a class="login__terms-link">Terms</a>
+            <a class="login__terms-link">{{'Terms' | translate}}</a>
 
             <p *ngIf="isRequired('terms')" 
                class="login__input-error login__input-error--checkbox">
@@ -115,14 +115,14 @@
         </div>
 
         <div class="login__form-group login__form-group--submit">
-          <button [disabled]="registerForm.invalid" type="submit" class="login__submit-btn">SIGN UP</button>
+          <button [disabled]="registerForm.invalid" type="submit" class="login__submit-btn">{{'SIGN UP' | translate}}</button>
         </div>
 
         <div class="login__form-group">
           <div class="login__have-account">
-            <span class="login__have-account-span">Already have an account?</span>
+            <span class="login__have-account-span">{{'Already have an account?' | translate}}</span>
             <a [routerLink]="['/login']" class="login__link-signup">
-              Sign In
+              {{'Sign In' | translate}}
             </a>
           </div>
         </div>

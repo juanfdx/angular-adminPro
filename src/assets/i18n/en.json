@@ -29,6 +29,11 @@
   "Last name": "Last name",
   "Email address": "Email address",
   "Email": "Email",
+  "Password": "Password",
+  "Confirm Password": "Confirm Password",
+  "Remember me": "Remember me",
+  "I agree to all": "I agree to all",
+  "Terms": "Terms",
   "Role": "Role",
   "Status": "Status",
   "Actions": "Actions",
@@ -58,5 +63,14 @@
   "Prev": "Prev",
   "Next": "Next",
   "Light sidebar": "Light sidebar",
-  "Dark sidebar": "Dark sidebar"
+  "Dark sidebar": "Dark sidebar",
+  "LOG IN": "LOG IN",
+  "Forgot pwd?": "Forgot pwd?",
+  "Sign Up": "Sign Up",
+  "SIGN UP": "SIGN UP",
+  "Don't have an account?": "Don't have an account?",
+  "Register Now": "Register Now",
+  "Create your account and enjoy": "Create your account and enjoy",
+  "Already have an account?": "Already have an account?",
+  "Sign In": "Sign In"
 }
