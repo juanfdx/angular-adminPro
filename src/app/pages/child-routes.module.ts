@@ -16,14 +16,14 @@ import { AdminGuard } from '../guards/admin.guard';
 const childRoutes: Routes = [
 
   { path: '', component: DashboardComponent, data: { title: 'Dashboard' } },
-  { path: 'account-settings', component: AccountSettingsComponent, data: { title: 'Configuración' } },
-  { path: 'profile', component: ProfileComponent, data: { title: 'Perfil' } },
-  { path: 'hospitals', component: HospitalsComponent, data: { title: 'Hospitales' } },
-  { path: 'medics', component: MedicsComponent, data: { title: 'Médicos' } },
-  { path: 'medic/:id', component: MedicComponent, data: { title: 'Médico' } },
+  { path: 'account-settings', component: AccountSettingsComponent, data: { title: 'Settings' } },
+  { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } },
+  { path: 'hospitals', component: HospitalsComponent, data: { title: 'Hospitals' } },
+  { path: 'medics', component: MedicsComponent, data: { title: 'Medics' } },
+  { path: 'medic/:id', component: MedicComponent, data: { title: 'Medic' } },
   { path: 'search/:term', component: SearchComponent, data: { title: 'Search' } },
   //Admin routes
-  { path: 'users', canActivate: [AdminGuard], component: UsersComponent, data: { title: 'Usuarios' } },
+  { path: 'users', canActivate: [AdminGuard], component: UsersComponent, data: { title: 'Users' } },
 ]
 
 

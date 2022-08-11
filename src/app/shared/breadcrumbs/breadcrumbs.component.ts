@@ -23,7 +23,7 @@ export class BreadcrumbsComponent implements OnInit {
     const observer2$ = this.getDataRoutes().subscribe( ({title}) => {
       this.title = title   
        //titulo de la pagina
-       document.title = `Medics & Hospitals - ${ title.toLowerCase() }`;
+       document.title = `Medics & Hospitals - ${ title.toLowerCase() }`;   
     })
     this.listObservers$.push(observer2$)
   }
