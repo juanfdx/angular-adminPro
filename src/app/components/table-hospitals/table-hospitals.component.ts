@@ -119,7 +119,7 @@ export class TableHospitalsComponent implements OnInit {
         })
       },
       error: err => {
-        Swal.fire('Error!!!', 'No se pudo actualizar el hospital!', 'error'),
+        Swal.fire('Error!!!', err.error.msg, 'error'),
         this.getHospitals()
       }
     }) 
@@ -150,7 +150,7 @@ export class TableHospitalsComponent implements OnInit {
             this.from = 0
             this.getHospitals();
           },             
-          error: err => Swal.fire('Error!!!', 'No se pudo borrar el hospital!', 'error')
+          error: err => Swal.fire('Error!!!', err.error.msg, 'error')
                         
         });
       }

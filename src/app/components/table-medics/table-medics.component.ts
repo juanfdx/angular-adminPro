@@ -93,7 +93,8 @@ export class TableMedicsComponent implements OnInit {
             this.from = 0
             this.getMedics();
           },
-          error: err => Swal.fire('Error!!!', 'No se pudo borrar el médico!', 'error'),
+          error: err => {
+            Swal.fire('Error!!!', err.error.msg, 'error')}
 
         });
       }

@@ -114,7 +114,7 @@ export class MedicComponent implements OnInit {
               this.router.navigateByUrl(`/dashboard/medic/${res.medic._id}`);
             },
             
-            error: err => Swal.fire('Error!!!', 'No se pudo actualizar el médico!', 'error')        
+            error: err => Swal.fire('Error!!!', err.error.msg, 'error')        
             
           });
 

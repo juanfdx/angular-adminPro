@@ -31,6 +31,7 @@ export class ModalImageComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription$ = this.modalImageService.modal$.subscribe(res => {
+      
       //si la res, no es un obj vacio
       if (Object.keys(res).length !== 0) {
         this.active = true
@@ -78,7 +79,7 @@ export class ModalImageComponent implements OnInit {
               this.disabled = this.myFileInput.nativeElement.value.length
               this.active = false       
             },
-            error: err => Swal.fire('Error!!!', 'No se pudo subir la imagen!', 'error')
+            error: err => Swal.fire('Error!!!', err.error.msg, 'error')
            
           })
   }
@@ -89,7 +90,9 @@ export class ModalImageComponent implements OnInit {
     //y al abrir el modal en otro sitio apareceria esa la imagen
     this.myFileInput.nativeElement.value = ''
     this.disabled = this.myFileInput.nativeElement.value.length
-    
+    //vaciamos la data del observable
+    this.modalImageService.modalSource.next({})
+    //cerramos el modal
     this.active = false
   }
 
