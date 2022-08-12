@@ -72,5 +72,16 @@
   "Register Now": "Register Now",
   "Create your account and enjoy": "Create your account and enjoy",
   "Already have an account?": "Already have an account?",
-  "Sign In": "Sign In"
+  "Sign In": "Sign In",
+  "name required": "name required",
+  "name should be at last 3 letters": "name should be at last 3 letters",
+  "lastName required": "lastName required",
+  "lastName should be at last 3 letters": "lastName should be at last 3 letters",
+  "email required": "email required",
+  "valid email required": "valid email required",
+  "password required": "password required",
+  "password must be at least 6 characters": "password must be at least 6 characters",
+  "confirm password required": "confirm password required",
+  "password missmatched": "password missmatched",
+  "you must accept the terms": "you must accept the terms"
 }

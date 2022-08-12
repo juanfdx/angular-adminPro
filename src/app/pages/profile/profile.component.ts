@@ -44,7 +44,7 @@ export class ProfileComponent implements OnInit {
   updateProfile(): void {
     this.userService.updateUser(this.profileForm.value, this.user._id).subscribe({
       next: res => Swal.fire('Success!!!', 'Usuario actualizado!', 'success'),
-      error: err => Swal.fire('Error!!!', 'No se pudo actualizar!', 'error')
+      error: err => Swal.fire('Error!!!', err.error.msg, 'error')
     })
   }
 

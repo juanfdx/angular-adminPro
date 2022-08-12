@@ -35,7 +35,8 @@
               <div class="table__select-wrapper">
                 <select class="table__select"
                         [(ngModel)]="user.role"
-                        (change)="changeUserRole(user)">
+                        (change)="changeUserRole(user)"
+                        [disabled]="user.email === 'juanfd@juan-fdez.com'">
                   <option value="ADMIN_ROLE">{{ 'admin' | translate }}</option>
                   <option value="USER_ROLE">{{ 'user' | translate }}</option>
                 </select>
@@ -46,12 +47,14 @@
             <td class="table__td">
               <button *ngIf="user.status === 'active'"  
                       class="table__status"
-                      (click)="changeUserStatus(user)">
+                      (click)="changeUserStatus(user)"
+                      [disabled]="user.email === 'juanfd@juan-fdez.com'">
                       {{ user.status | translate}}
               </button>
               <button *ngIf="user.status !== 'active'"  
                       class="table__status table__status--inactive"
-                      (click)="changeUserStatus(user)">
+                      (click)="changeUserStatus(user)"
+                      [disabled]="user.email === 'juanfd@juan-fdez.com'">
                       {{ user.status! | translate}}
               </button>
             </td>

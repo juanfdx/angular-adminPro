@@ -72,5 +72,17 @@
       "Register Now": "Regístrate ahora",
       "Create your account and enjoy": "Crea tu cuenta",
       "Already have an account?": "Ya tienes una cuenta?",
-      "Sign In": "Inicia Sesión"
+      "Sign In": "Inicia Sesión",
+      "name required": "nombre obligatorio",
+      "name should be at last 3 letters": "el nombre debe tener al menos 3 letras",
+      "lastName required": "apellido obligatorio",
+      "lastName should be at last 3 letters": "el apellido debe tener al menos 3 letras",
+      "email required": "correo electronico obligatorio",
+      "valid email required": "debe ser un correo válido",
+      "password required": "contraseña obligatoria",
+      "password must be at least 6 characters": "la contraseña debe tener al menos 6 caracteres",
+      "confirm password required": "confirmar contraseña",
+      "password missmatched": "la contraseña no coincide",
+      "you must accept the terms": "debe aceptar los terminos"
+
     }

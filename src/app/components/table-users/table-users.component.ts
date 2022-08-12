@@ -67,13 +67,19 @@ export class TableUsersComponent implements OnInit {
 
   //CHANGE USER ROLE
   changeUserRole(user: User): void {
-    this.userService.changeRoleOrStatus(user).subscribe(res => res)
+    this.userService.changeRoleOrStatus(user).subscribe({
+      next: res => res,
+      error: err => Swal.fire('Error!!!', err.error.msg, 'error'), 
+    })
   }
 
   //CHANGE USER STATUS
   changeUserStatus(user: User): void {
     (user.status === 'active') ? user.status = 'inactive' : user.status = 'active';   
-    this.userService.changeRoleOrStatus(user).subscribe( res => res)
+    this.userService.changeRoleOrStatus(user).subscribe({
+      next: res => res,
+      error: err => Swal.fire('Error!!!', err.error.msg, 'error'), 
+    })
   }
 
   //DELETE USER
@@ -99,7 +105,7 @@ export class TableUsersComponent implements OnInit {
               this.from = 0
               this.getUsers()
             },
-            error: err => Swal.fire('Error!!!', 'No se pudo borrar ese usuario.', 'error'),
+            error: err => Swal.fire('Error!!!', err.error.msg, 'error'),
 
           })
         }
@@ -143,5 +149,6 @@ export class TableUsersComponent implements OnInit {
   ngOnDestroy(): void {
     this.subscription$.unsubscribe();
   }
-
 }
+
+
