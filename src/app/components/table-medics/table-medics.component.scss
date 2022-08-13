@@ -78,6 +78,7 @@
 
     &:first-child {
       width: 100px;
+      min-width: 100px;
     }
 
     &:nth-child(2) {
@@ -91,7 +92,9 @@
 
   &__img {
     width: 40px;
-    min-width: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    object-fit: fill;
     border-radius: 3px;
     margin-left: auto;
     margin-right: auto;
