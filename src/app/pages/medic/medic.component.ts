@@ -135,7 +135,7 @@ export class MedicComponent implements OnInit {
           this.router.navigateByUrl(`/dashboard/medics`);
         },
         
-        error: err => Swal.fire('Error!!!', 'No se pudo crear el médico!', 'error')        
+        error: err => Swal.fire('Error!!!', err.error.msg, 'error')        
         
       });    
     }

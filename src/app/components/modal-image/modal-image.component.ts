@@ -20,7 +20,7 @@ export class ModalImageComponent implements OnInit {
   //si no hay imagen cargada en el input file desabilita btn actualizar
   public disabled     : number = 0 
 
-  private subscription$!: Subscription;
+  public listObservers$: Subscription[] = [];
 
   //gestionar contenido del input file
   @ViewChild('fileInput', {static: false})
@@ -30,7 +30,7 @@ export class ModalImageComponent implements OnInit {
               private fileUploadService: FileUploadService) { }
 
   ngOnInit(): void {
-    this.subscription$ = this.modalImageService.modal$.subscribe(res => {
+    const observer1$ = this.modalImageService.modal$.subscribe(res => {
       
       //si la res, no es un obj vacio
       if (Object.keys(res).length !== 0) {
@@ -39,6 +39,7 @@ export class ModalImageComponent implements OnInit {
         this.type = res.type
       }    
     })
+    this.listObservers$.push(observer1$)
   }
 
   changeImage(event: any): void {
@@ -67,6 +68,7 @@ export class ModalImageComponent implements OnInit {
           .subscribe({
             next: res => {          
               this.data.image = res.fileName
+              
               Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -74,6 +76,13 @@ export class ModalImageComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 2000
               }) 
+
+              //solo cuando se cambie la imagen de un user
+              if (this.type === 'users') {
+                //emitimos un evento para que se actualize el componente
+                this.modalImageService.newImageEvent.emit(res.fileName)
+              }
+
               this.imageTemp = null
               this.myFileInput.nativeElement.value = ''
               this.disabled = this.myFileInput.nativeElement.value.length
@@ -97,7 +106,7 @@ export class ModalImageComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.subscription$.unsubscribe();
+    this.listObservers$.forEach(u => u.unsubscribe())
   }
 
 }

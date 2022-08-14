@@ -1,6 +1,6 @@
 ## 🧾 Description
 
-Small angular framework project for my portfolio. I have made an imitation of the [pccomponentes.com](https://www.pccomponentes.com/) website using frontend technologies. The idea is that the created page is as similar as possible to the original.
+Small angular framework project for my portfolio. I have made a CMS (Content Management System)website using frontend technologies. This project is a small Medics & Hospitals Manager.
 
 ## 🧐 Author 
 
@@ -12,14 +12,14 @@ Juan Fernandez Diaz
 
 ## 🚀 Demo
 
-Try the web site:  [my-pccomponentes](https://my-pccomponentes.netlify.app/)
+Try the web site:  [my-adminpro](https://my-adminpro.netlify.app/)
 
 ## 🛠️ Installation Steps
 
 1. Clone the repository
 
 ```bash
-download zip from https://github.com/juanfdx/angular-adminPro.git
+https://github.com/juanfdx/angular-adminPro.git
 ```
 
 2. Change the working directory

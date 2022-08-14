@@ -81,7 +81,7 @@ export class ProfileComponent implements OnInit {
                 timer: 2000
               })        
             },
-            error: err => Swal.fire('Error!!!', 'No se pudo subir la imagen!', 'error') 
+            error: err => Swal.fire('Error!!!', err.error.msg, 'error') 
           })
   }
 

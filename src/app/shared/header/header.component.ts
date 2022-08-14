@@ -3,10 +3,11 @@ import { ThemesService } from 'src/app/services/themes.service';
 import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
 import { SwitchLangService } from 'src/app/services/switch-lang.service';
 import { UserService } from 'src/app/services/user.service';
-import { Subscription } from 'rxjs';
+import { Subscription, delay } from 'rxjs';
 //interfaces
 import { Theme } from 'src/app/interfaces/theme.interface';
 import { User } from 'src/app/interfaces/user.interface';
+import { ModalImageService } from 'src/app/services/modal-image.service';
 
 
 @Component({
@@ -31,7 +32,8 @@ export class HeaderComponent implements OnInit {
   constructor(private toggleMenuService: ToggleMenuService,
               private themesService: ThemesService,
               private userService: UserService,
-              private switchLangService: SwitchLangService) { }
+              private switchLangService: SwitchLangService,
+              private modalImageService: ModalImageService) { }
 
 
   ngOnInit(): void {
@@ -39,13 +41,28 @@ export class HeaderComponent implements OnInit {
     this.setLangActive()
     this.toggleMenu()
     this.closeDropdowns()
+    this.modalImageUploaded()
+    this.getUser()
     this.screenWidth = window.innerWidth
     if (this.screenWidth >= 1170) { this.active = true }
 
+  }
+  
+  getUser(): void {
     const observer4$ = this.userService.user$.subscribe( (res: User) => {
       this.user = res    
      })
     this.listObservers$.push(observer4$)  
+  }
+
+  modalImageUploaded(): void {
+    const observer6$ = this.modalImageService.newImageEvent.subscribe({
+      next: (image: string) => {
+        this.user.image = image
+        this.getUser()       
+      }
+    })
+    this.listObservers$.push(observer6$)  
   }
 
   setLangActive(): void {
