@@ -1,6 +1,6 @@
 ## 🧾 Description
 
-Small angular framework project for my portfolio. I have made a CMS (Content Management System)website using frontend technologies. This project is a small Medics & Hospitals Manager.
+Small angular framework project for my portfolio. I have made a CMS (Content Management System)  website using frontend technologies. This project is a small Medics & Hospitals Manager.
 
 ## 🧐 Author 
 
@@ -12,7 +12,7 @@ Juan Fernandez Diaz
 
 ## 🚀 Demo
 
-Try the web site:  [my-adminpro](https://my-adminpro.netlify.app/)
+Try the web site:  [node-adminpro](https://node-adminpro-backend.herokuapp.com/login)
 
 ## 🛠️ Installation Steps
 
