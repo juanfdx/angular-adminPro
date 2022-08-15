@@ -12,7 +12,7 @@ Juan Fernandez Diaz
 
 ## 🚀 Demo
 
-Try the web site:  [node-adminpro](https://node-adminpro-backend.herokuapp.com/login)
+Try the web site:  [medics-hospitals-manager](https://node-adminpro-backend.herokuapp.com/login)
 
 ## 🛠️ Installation Steps
 
